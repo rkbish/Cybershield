@@ -1,0 +1,1542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CyberShield India 2.0 – Stay Safe Online!</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --saffron:#FF9933; --india-green:#138808; --navy:#000080;
+  --sky:#4FC3F7; --bg:#0D1B2A; --card:#132238; --card2:#1A2E47;
+  --accent:#FFD700; --danger:#FF4757; --safe:#2ED573; --text:#E8F4FD; --muted:#8BA3BC;
+  --purple:#a855f7; --teal:#14b8a6;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:radial-gradient(1px 1px at 20% 30%,rgba(255,255,255,.4),transparent),radial-gradient(1px 1px at 60% 10%,rgba(255,255,255,.3),transparent),radial-gradient(1px 1px at 80% 60%,rgba(255,255,255,.35),transparent),radial-gradient(1px 1px at 10% 80%,rgba(255,255,255,.25),transparent),radial-gradient(2px 2px at 90% 20%,rgba(255,255,255,.2),transparent);pointer-events:none;z-index:0}
+
+/* HEADER */
+header{position:relative;z-index:10;background:linear-gradient(135deg,var(--navy) 0%,#1a237e 50%,var(--india-green) 100%);border-bottom:3px solid var(--saffron)}
+.header-inner{max-width:1100px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:14px}
+.logo-shield{font-size:2.4rem;filter:drop-shadow(0 0 12px rgba(255,153,51,.7));animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+.header-text h1{font-family:'Baloo 2',cursive;font-size:1.7rem;font-weight:800;color:var(--accent);text-shadow:0 0 20px rgba(255,215,0,.5)}
+.header-text p{color:#B0BEC5;font-size:0.8rem}
+.hdr-stats{margin-left:auto;display:flex;gap:10px}
+.stat-pill{background:rgba(255,255,255,.1);border:1px solid rgba(255,215,0,.3);border-radius:10px;padding:8px 14px;text-align:center}
+.stat-pill .val{font-family:'Baloo 2',cursive;font-size:1.4rem;font-weight:800;color:var(--accent)}
+.stat-pill .lbl{font-size:0.65rem;color:var(--muted)}
+
+/* NAV */
+.nav-strip{position:relative;z-index:10;background:var(--card);border-bottom:1px solid rgba(255,255,255,.07);padding:0 20px;overflow-x:auto}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;gap:2px}
+.nav-tab{padding:10px 13px;cursor:pointer;font-family:'Baloo 2',cursive;font-size:0.78rem;font-weight:600;color:var(--muted);border-bottom:3px solid transparent;white-space:nowrap;transition:all .2s;display:flex;align-items:center;gap:5px}
+.nav-tab:hover{color:var(--text)}
+.nav-tab.active{color:var(--accent);border-bottom-color:var(--saffron)}
+.nav-tab .ck{background:var(--safe);color:#000;border-radius:50%;width:16px;height:16px;font-size:.6rem;display:flex;align-items:center;justify-content:center;font-weight:800}
+
+/* MAIN */
+main{position:relative;z-index:5;max-width:1100px;margin:0 auto;padding:24px 18px}
+.screen{display:none;animation:fadeIn .4s ease}
+.screen.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+/* TYPOGRAPHY */
+.pill{display:inline-block;background:linear-gradient(135deg,var(--saffron),#e67e00);color:#000;font-size:.7rem;font-weight:800;padding:3px 10px;border-radius:20px;margin-bottom:8px;text-transform:uppercase;letter-spacing:.05em}
+.pill.blue{background:linear-gradient(135deg,#3b82f6,#1d4ed8)}
+.pill.purple{background:linear-gradient(135deg,var(--purple),#7c3aed)}
+.pill.teal{background:linear-gradient(135deg,var(--teal),#0f766e)}
+.section-header{margin-bottom:22px}
+.section-header h2{font-family:'Baloo 2',cursive;font-size:1.6rem;font-weight:800}
+.section-header p{color:var(--muted);margin-top:4px;font-size:.88rem}
+
+/* CARDS */
+.card{background:var(--card);border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:20px;margin-bottom:16px}
+.card.glow-safe{border-color:rgba(46,213,115,.4);box-shadow:0 0 20px rgba(46,213,115,.1)}
+.card.glow-danger{border-color:rgba(255,71,87,.4);box-shadow:0 0 20px rgba(255,71,87,.1)}
+.card.glow-gold{border-color:rgba(255,215,0,.4);box-shadow:0 0 20px rgba(255,215,0,.1)}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:7px;padding:9px 20px;border-radius:30px;border:none;cursor:pointer;font-family:'Baloo 2',cursive;font-size:.88rem;font-weight:700;transition:all .2s}
+.btn-primary{background:linear-gradient(135deg,var(--saffron),#e67e00);color:#000}
+.btn-primary:hover{transform:scale(1.04);box-shadow:0 4px 20px rgba(255,153,51,.4)}
+.btn-secondary{background:rgba(255,255,255,.08);color:var(--text);border:1px solid rgba(255,255,255,.15)}
+.btn-secondary:hover{background:rgba(255,255,255,.13)}
+.btn-green{background:linear-gradient(135deg,var(--safe),#1aaf58);color:#000}
+.btn-blue{background:linear-gradient(135deg,#3b82f6,#1d4ed8);color:#fff}
+.btn-purple{background:linear-gradient(135deg,var(--purple),#7c3aed);color:#fff}
+.btn-start{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--saffron),#e67e00);color:#000;font-family:'Baloo 2',cursive;font-size:1.1rem;font-weight:800;padding:14px 32px;border-radius:50px;border:none;cursor:pointer;box-shadow:0 4px 20px rgba(255,153,51,.4);transition:all .2s}
+.btn-start:hover{transform:scale(1.04);box-shadow:0 6px 28px rgba(255,153,51,.6)}
+
+/* FEEDBACK */
+.feedback-msg{margin-top:12px;padding:10px 16px;border-radius:10px;font-size:.84rem;font-weight:600;display:none}
+.feedback-msg.show{display:block;animation:fadeIn .3s}
+.feedback-msg.safe{background:rgba(46,213,115,.12);border:1px solid rgba(46,213,115,.3);color:var(--safe)}
+.feedback-msg.danger{background:rgba(255,71,87,.12);border:1px solid rgba(255,71,87,.3);color:var(--danger)}
+.feedback-msg.info{background:rgba(79,195,247,.1);border:1px solid rgba(79,195,247,.25);color:#90caf9}
+
+/* TIP BOX */
+.tip-box{background:rgba(79,195,247,.08);border:1px solid rgba(79,195,247,.2);border-radius:12px;padding:13px 15px;font-size:.83rem;color:#90caf9;display:flex;gap:10px;align-items:flex-start;margin:13px 0}
+
+/* GRIDS */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:20px 0}
+
+/* MISSION CARDS */
+.mission-card{background:linear-gradient(135deg,var(--card2),var(--card));border:1px solid rgba(255,215,0,.2);border-radius:16px;padding:18px;cursor:pointer;transition:all .25s;display:flex;flex-direction:column;align-items:flex-start;gap:8px}
+.mission-card:hover{transform:translateY(-4px);border-color:var(--saffron);box-shadow:0 8px 30px rgba(255,153,51,.2)}
+.mission-card.done{border-color:rgba(46,213,115,.4)}
+.mission-card .icon{font-size:2.2rem}
+.mission-card h3{font-family:'Baloo 2',cursive;font-size:1rem;font-weight:700}
+.mission-card p{font-size:.78rem;color:var(--muted)}
+.mission-card .xp{font-size:.72rem;background:rgba(255,215,0,.15);border:1px solid rgba(255,215,0,.3);color:var(--accent);padding:2px 10px;border-radius:20px}
+.mission-card .done-badge{font-size:.72rem;background:rgba(46,213,115,.15);border:1px solid rgba(46,213,115,.3);color:var(--safe);padding:2px 10px;border-radius:20px}
+
+/* DRAG CHIPS */
+.drag-chip{background:linear-gradient(135deg,#1e3a5f,#162d4a);border:1px solid rgba(100,180,255,.25);color:var(--text);font-family:'Baloo 2',cursive;font-size:.9rem;font-weight:600;padding:7px 14px;border-radius:30px;cursor:grab;user-select:none;transition:all .2s}
+.drag-chip:hover{transform:scale(1.05)}
+.drag-chip.good{background:linear-gradient(135deg,#1a4a2e,#133a22);border-color:rgba(46,213,115,.4)}
+.drag-chip.bad{background:linear-gradient(135deg,#4a1a1a,#3a1313);border-color:rgba(255,71,87,.4)}
+.drop-zone{background:var(--card2);border:2px dashed rgba(255,255,255,.15);border-radius:14px;padding:16px;min-height:60px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;transition:border-color .2s}
+.drop-zone.drag-over{border-color:var(--saffron);background:rgba(255,153,51,.05)}
+
+/* STRENGTH */
+.strength-bar{height:10px;border-radius:10px;background:rgba(255,255,255,.08);overflow:hidden;margin-top:6px}
+.strength-fill{height:100%;border-radius:10px;transition:all .5s ease}
+
+/* PHISHING EMAIL */
+.email-sim{background:#fff;color:#222;border-radius:12px;overflow:hidden;box-shadow:0 4px 30px rgba(0,0,0,.4)}
+.email-toolbar{background:#f1f3f4;padding:9px 15px;display:flex;align-items:center;gap:9px;border-bottom:1px solid #ddd}
+.email-dot{width:12px;height:12px;border-radius:50%}
+.email-field{padding:7px 15px;border-bottom:1px solid #eee;font-size:.83rem}
+.email-field span.lbl{color:#555;font-weight:600;margin-right:8px}
+.email-body{padding:16px;font-size:.88rem;line-height:1.7}
+.suspicious{background:rgba(255,200,0,.25);border-bottom:2px solid orange;cursor:pointer;border-radius:3px;padding:0 2px}
+.suspicious.found{background:rgba(255,71,87,.2);border-color:var(--danger)}
+.clue-dot{width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.08);border:2px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:.72rem;transition:all .3s}
+.clue-dot.found{background:rgba(255,71,87,.2);border-color:var(--danger);color:var(--danger)}
+
+/* SCENARIO */
+.scenario-card{background:var(--card2);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:20px;margin-bottom:18px}
+.scenario-msg{background:rgba(255,255,255,.05);border-left:3px solid var(--sky);border-radius:0 10px 10px 0;padding:11px 15px;margin:11px 0;font-style:italic;font-size:.9rem}
+.choice-btn{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:11px 15px;cursor:pointer;font-family:'Nunito',sans-serif;font-size:.88rem;color:var(--text);text-align:left;transition:all .2s;width:100%;margin-bottom:7px}
+.choice-btn:hover{background:rgba(79,195,247,.1);border-color:var(--sky)}
+.choice-btn.correct{background:rgba(46,213,115,.12);border-color:var(--safe);color:var(--safe)}
+.choice-btn.wrong{background:rgba(255,71,87,.12);border-color:var(--danger);color:var(--danger)}
+.choice-btn:disabled{cursor:not-allowed;opacity:.7}
+.scenario-result{margin-top:13px;padding:13px 15px;border-radius:12px;font-size:.86rem;display:none}
+.scenario-result.show{display:block;animation:fadeIn .3s}
+.scenario-result.safe{background:rgba(46,213,115,.1);border:1px solid rgba(46,213,115,.3)}
+.scenario-result.danger{background:rgba(255,71,87,.1);border:1px solid rgba(255,71,87,.3)}
+
+/* SORT */
+.sort-bin{background:var(--card2);border:2px dashed rgba(255,255,255,.12);border-radius:16px;padding:15px;min-height:160px;transition:all .2s}
+.sort-bin.safe-bin{border-color:rgba(46,213,115,.3)}
+.sort-bin.unsafe-bin{border-color:rgba(255,71,87,.3)}
+.sort-bin.drag-over{background:rgba(255,153,51,.08);border-color:var(--saffron)}
+.bin-title{font-family:'Baloo 2',cursive;font-size:.95rem;font-weight:700;margin-bottom:11px;display:flex;align-items:center;gap:7px}
+.sort-chip{background:linear-gradient(135deg,#1e3a5f,#162d4a);border:1px solid rgba(100,180,255,.2);color:var(--text);padding:6px 13px;border-radius:30px;font-size:.8rem;font-weight:600;cursor:grab;user-select:none;transition:all .2s;display:inline-block;margin:4px}
+.sort-chip:hover{transform:scale(1.05)}
+.sort-chip.placed-safe{background:rgba(46,213,115,.15);border-color:rgba(46,213,115,.4);color:var(--safe)}
+.sort-chip.placed-unsafe{background:rgba(255,71,87,.15);border-color:rgba(255,71,87,.4);color:var(--danger)}
+
+/* QUIZ */
+.quiz-q{background:var(--card2);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:20px;margin-bottom:16px}
+.quiz-q h4{font-family:'Baloo 2',cursive;font-size:1.05rem;margin-bottom:14px}
+.quiz-opt{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:10px 15px;cursor:pointer;font-size:.88rem;color:var(--text);transition:all .2s;width:100%;text-align:left;margin-bottom:7px}
+.quiz-opt:hover{background:rgba(79,195,247,.08);border-color:var(--sky)}
+.quiz-opt.correct{background:rgba(46,213,115,.15);border-color:var(--safe);color:var(--safe)}
+.quiz-opt.wrong{background:rgba(255,71,87,.15);border-color:var(--danger);color:var(--danger)}
+.quiz-opt:disabled{cursor:not-allowed}
+
+/* PRIVACY SIMULATOR */
+.settings-panel{background:#1e293b;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.1)}
+.settings-header{background:#0f172a;padding:14px 20px;display:flex;align-items:center;gap:10px;border-bottom:1px solid rgba(255,255,255,.08)}
+.settings-row{padding:14px 20px;border-bottom:1px solid rgba(255,255,255,.06);display:flex;align-items:center;justify-content:space-between;gap:12px}
+.settings-row:last-child{border-bottom:none}
+.settings-info h4{font-size:.9rem;font-weight:700;margin-bottom:3px}
+.settings-info p{font-size:.75rem;color:var(--muted)}
+.toggle-wrap{position:relative;width:52px;height:28px;flex-shrink:0}
+.toggle-wrap input{opacity:0;width:0;height:0;position:absolute}
+.toggle-slider{position:absolute;inset:0;background:#374151;border-radius:28px;cursor:pointer;transition:.3s}
+.toggle-slider::before{content:'';position:absolute;left:4px;top:4px;width:20px;height:20px;background:#fff;border-radius:50%;transition:.3s}
+.toggle-wrap input:checked + .toggle-slider{background:var(--safe)}
+.toggle-wrap input:checked + .toggle-slider::before{transform:translateX(24px)}
+.privacy-score-wrap{text-align:center;padding:20px}
+.privacy-ring{width:100px;height:100px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-family:'Baloo 2',cursive;font-size:1.8rem;font-weight:800;border:5px solid var(--safe);transition:all .5s}
+.privacy-feedback-list{list-style:none;text-align:left}
+.privacy-feedback-list li{padding:6px 0;font-size:.82rem;border-bottom:1px solid rgba(255,255,255,.05);display:flex;gap:8px}
+
+/* CYBERBULLY SIM */
+.chat-window{background:#0f172a;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.08);max-height:340px;overflow-y:auto}
+.chat-header{background:#1e293b;padding:12px 16px;display:flex;align-items:center;gap:10px;border-bottom:1px solid rgba(255,255,255,.08)}
+.chat-avatar{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.4rem}
+.chat-msgs{padding:14px;display:flex;flex-direction:column;gap:10px}
+.chat-bubble{max-width:75%;padding:9px 13px;border-radius:16px;font-size:.85rem;line-height:1.5}
+.chat-bubble.them{background:#1e293b;border-radius:4px 16px 16px 16px;align-self:flex-start}
+.chat-bubble.me{background:linear-gradient(135deg,#1d4ed8,#1e40af);border-radius:16px 4px 16px 16px;align-self:flex-end}
+.chat-bubble.bully{background:linear-gradient(135deg,#7c2d12,#9a3412);border-radius:4px 16px 16px 16px;align-self:flex-start}
+.chat-sender{font-size:.7rem;color:var(--muted);margin-bottom:3px}
+
+/* NETWORK SAFETY */
+.wifi-card{background:var(--card2);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:16px;cursor:pointer;transition:all .2s;text-align:center}
+.wifi-card:hover{transform:translateY(-3px)}
+.wifi-card.safe-wifi{border-color:rgba(46,213,115,.3)}
+.wifi-card.risky-wifi{border-color:rgba(255,71,87,.3)}
+.wifi-card.selected-safe{background:rgba(46,213,115,.1)}
+.wifi-card.selected-risky{background:rgba(255,71,87,.1)}
+.wifi-icon{font-size:2rem;margin-bottom:8px}
+.wifi-name{font-family:'Baloo 2',cursive;font-size:.95rem;font-weight:700}
+.wifi-detail{font-size:.75rem;color:var(--muted);margin-top:4px}
+
+/* STEPS */
+.progress-steps{display:flex;align-items:center;gap:0;margin-bottom:22px}
+.step-dot{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.08);border:2px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;font-size:.76rem;font-weight:700;color:var(--muted);transition:all .3s;flex-shrink:0}
+.step-dot.done{background:var(--safe);border-color:var(--safe);color:#000}
+.step-dot.active{background:var(--saffron);border-color:var(--saffron);color:#000}
+.step-line{flex:1;height:2px;background:rgba(255,255,255,.08)}
+.step-line.done{background:var(--safe)}
+
+/* BADGES */
+.badges-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.badge-card{background:var(--card2);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:18px;text-align:center;transition:all .3s;position:relative}
+.badge-card.earned{border-color:rgba(255,215,0,.3);box-shadow:0 0 20px rgba(255,215,0,.1)}
+.badge-card .badge-icon{font-size:2.4rem;margin-bottom:9px}
+.badge-card h4{font-family:'Baloo 2',cursive;font-size:.88rem;font-weight:700}
+.badge-card p{font-size:.7rem;color:var(--muted);margin-top:4px}
+.badge-card .lock{opacity:.3;filter:grayscale(1)}
+.confetti-wrap{text-align:center;padding:24px 0}
+.confetti-wrap h2{font-family:'Baloo 2',cursive;font-size:2rem;font-weight:800;color:var(--accent)}
+.level-bar-wrap{margin:14px 0}
+.level-bar{height:14px;border-radius:10px;background:rgba(255,255,255,.08);overflow:hidden}
+.level-fill{height:100%;border-radius:10px;background:linear-gradient(90deg,var(--saffron),var(--accent));transition:width 1s ease}
+
+/* WORD SCRAMBLE */
+.scramble-word{font-family:'Baloo 2',cursive;font-size:2.5rem;font-weight:800;letter-spacing:.3em;color:var(--accent);text-align:center;padding:20px 0}
+.scramble-input{background:var(--card2);border:2px solid rgba(255,255,255,.15);border-radius:12px;padding:12px 16px;font-family:'Baloo 2',cursive;font-size:1.1rem;color:var(--text);width:100%;outline:none;text-transform:uppercase;text-align:center}
+.scramble-input:focus{border-color:var(--saffron)}
+.letter-bank{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:14px 0}
+.letter-tile{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,#1e3a5f,#162d4a);border:2px solid rgba(100,180,255,.3);display:flex;align-items:center;justify-content:center;font-family:'Baloo 2',cursive;font-size:1.2rem;font-weight:700;cursor:pointer;transition:all .2s;color:var(--accent)}
+.letter-tile:hover{transform:scale(1.1);border-color:var(--saffron)}
+.letter-tile.used{opacity:.3;cursor:not-allowed}
+.answer-slots{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:14px 0;min-height:52px}
+.answer-slot{width:44px;height:44px;border-radius:10px;background:rgba(255,255,255,.05);border:2px dashed rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-family:'Baloo 2',cursive;font-size:1.2rem;font-weight:700;cursor:pointer;color:var(--text)}
+.answer-slot.filled{background:rgba(255,153,51,.15);border-color:var(--saffron);color:var(--accent)}
+.answer-slot.correct-slot{background:rgba(46,213,115,.15);border-color:var(--safe)}
+
+/* MODAL */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:100;align-items:center;justify-content:center}
+.modal-overlay.open{display:flex;animation:fadeIn .3s}
+.modal-box{background:var(--card);border:1px solid rgba(255,215,0,.3);border-radius:20px;padding:28px;max-width:400px;width:90%;text-align:center;box-shadow:0 0 40px rgba(255,215,0,.15)}
+.modal-box h3{font-family:'Baloo 2',cursive;font-size:1.5rem;font-weight:800;color:var(--accent);margin-bottom:10px}
+.modal-box p{color:var(--muted);font-size:.88rem;line-height:1.6}
+.modal-box .xp-gain{font-family:'Baloo 2',cursive;font-size:2rem;font-weight:800;color:var(--safe);margin:12px 0}
+
+/* QUIZ LEVEL TABS */
+.quiz-level-tabs{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap}
+.quiz-level-tab{padding:9px 20px;border-radius:30px;border:2px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);cursor:pointer;font-family:'Baloo 2',cursive;font-size:.85rem;font-weight:700;color:var(--muted);transition:all .2s;display:flex;align-items:center;gap:7px}
+.quiz-level-tab:hover{border-color:var(--saffron);color:var(--text)}
+.quiz-level-tab.active{background:linear-gradient(135deg,var(--saffron),#e67e00);border-color:var(--saffron);color:#000}
+.quiz-level-tab.locked{opacity:.4;cursor:not-allowed}
+.quiz-level-tab.completed{border-color:var(--safe);color:var(--safe)}
+.level-badge-inline{font-size:.65rem;background:rgba(255,71,87,.2);color:var(--danger);border-radius:10px;padding:2px 7px;font-weight:800}
+.level-badge-inline.green{background:rgba(46,213,115,.2);color:var(--safe)}
+.level-badge-inline.gold{background:rgba(255,215,0,.2);color:var(--accent)}
+
+/* CERTIFICATE */
+@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+.cert-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:200;align-items:center;justify-content:center;padding:20px}
+.cert-overlay.open{display:flex;animation:fadeIn .4s}
+.certificate{background:#fffdf5;color:#1a1a2e;border-radius:16px;max-width:700px;width:100%;position:relative;overflow:hidden;box-shadow:0 0 60px rgba(255,215,0,.4)}
+.cert-border{position:absolute;inset:10px;border:3px solid #b8960c;border-radius:10px;pointer-events:none;z-index:1}
+.cert-border::before{content:'';position:absolute;inset:4px;border:1px solid rgba(184,150,12,.4);border-radius:6px}
+.cert-inner{padding:40px 50px;position:relative;z-index:2;text-align:center}
+.cert-header-band{background:linear-gradient(135deg,#000080,#1a237e,#138808);padding:18px;text-align:center;color:#FFD700}
+.cert-header-band h1{font-family:'Baloo 2',cursive;font-size:1.5rem;font-weight:800;letter-spacing:.05em}
+.cert-header-band p{font-size:.8rem;color:rgba(255,255,255,.7);margin-top:3px}
+.cert-seal{width:90px;height:90px;border-radius:50%;background:linear-gradient(135deg,#FFD700,#FF9933);display:flex;align-items:center;justify-content:center;font-size:2.5rem;margin:20px auto;box-shadow:0 0 0 6px rgba(255,153,51,.2),0 0 0 12px rgba(255,215,0,.1);animation:pulse 2s infinite}
+.cert-title{font-family:'Baloo 2',cursive;font-size:1rem;color:#666;text-transform:uppercase;letter-spacing:.15em;margin-bottom:6px}
+.cert-name{font-family:'Baloo 2',cursive;font-size:2.2rem;font-weight:800;color:#000080;border-bottom:2px solid #b8960c;padding-bottom:8px;margin-bottom:16px;min-width:200px;display:inline-block}
+.cert-body{font-size:.88rem;color:#444;line-height:1.8;margin-bottom:18px}
+.cert-score-row{display:flex;justify-content:center;gap:24px;margin:16px 0}
+.cert-score-item{text-align:center}
+.cert-score-item .val{font-family:'Baloo 2',cursive;font-size:1.5rem;font-weight:800;color:#000080}
+.cert-score-item .lbl{font-size:.7rem;color:#888;text-transform:uppercase;letter-spacing:.08em}
+.cert-footer{display:flex;justify-content:space-between;align-items:flex-end;margin-top:20px;padding-top:16px;border-top:1px solid #e5d485}
+.cert-sig{text-align:center}
+.cert-sig .sig-line{width:120px;height:1px;background:#333;margin:0 auto 4px}
+.cert-sig .sig-label{font-size:.7rem;color:#888}
+.cert-tricolor{height:6px;background:linear-gradient(90deg,#FF9933 33%,#fff 33% 66%,#138808 66%);margin-top:0}
+.cert-watermark{position:absolute;opacity:.04;font-size:8rem;font-weight:900;color:#000080;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-30deg);pointer-events:none;z-index:1;font-family:'Baloo 2',cursive;white-space:nowrap}
+.cert-badges-row{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:12px 0}
+.cert-badge-mini{font-size:1.4rem;background:#f5f0e0;border:1px solid #e5d485;border-radius:8px;padding:4px 8px}
+@media print{
+  .cert-overlay{position:absolute;background:none;padding:0}
+  .certificate{box-shadow:none;max-width:100%}
+  .cert-print-btn,.cert-close-btn{display:none!important}
+}
+
+@media(max-width:680px){
+  .hero-grid,.two-col,.three-col{grid-template-columns:1fr}
+  .badges-grid{grid-template-columns:repeat(2,1fr)}
+  .header-text h1{font-size:1.2rem}
+  .hdr-stats{gap:6px}
+  .stat-pill{padding:6px 10px}
+  .cert-inner{padding:24px 20px}
+  .cert-name{font-size:1.5rem}
+}
+</style>
+</head>
+<body>
+
+<!-- LEVEL UP MODAL -->
+<div class="modal-overlay" id="levelModal">
+  <div class="modal-box">
+    <div style="font-size:3rem">🎉</div>
+    <h3 id="modalTitle">Mission Complete!</h3>
+    <div class="xp-gain" id="modalXP">+25 XP</div>
+    <p id="modalMsg">Great job! Keep going to earn more badges.</p>
+    <button class="btn btn-primary" style="margin-top:16px" onclick="closeModal()">Continue →</button>
+  </div>
+</div>
+
+<header>
+  <div class="header-inner">
+    <div class="logo-shield">🛡️</div>
+    <div class="header-text">
+      <h1>CyberShield India 2.0</h1>
+      <p>Digital Safety Adventure · Class 6 · 8 Missions</p>
+    </div>
+    <div class="hdr-stats">
+      <div class="stat-pill"><div class="val" id="totalScore">0</div><div class="lbl">⭐ XP</div></div>
+      <div class="stat-pill"><div class="val" id="levelDisp">1</div><div class="lbl">🏅 Level</div></div>
+      <div class="stat-pill"><div class="val" id="badgeCount">0</div><div class="lbl">🏆 Badges</div></div>
+    </div>
+  </div>
+</header>
+
+<div class="nav-strip">
+  <div class="nav-inner">
+    <div class="nav-tab active" onclick="goTo('welcome')" id="tab-welcome">🏠 Home</div>
+    <div class="nav-tab" onclick="goTo('password')" id="tab-password">🔐 Passwords</div>
+    <div class="nav-tab" onclick="goTo('phishing')" id="tab-phishing">🎣 Phishing</div>
+    <div class="nav-tab" onclick="goTo('scenarios')" id="tab-scenarios">💬 Strangers</div>
+    <div class="nav-tab" onclick="goTo('sort')" id="tab-sort">📂 Sort It</div>
+    <div class="nav-tab" onclick="goTo('privacy')" id="tab-privacy">🔒 Privacy</div>
+    <div class="nav-tab" onclick="goTo('cyberbully')" id="tab-cyberbully">🚫 Bullying</div>
+    <div class="nav-tab" onclick="goTo('network')" id="tab-network">📶 Wi-Fi</div>
+    <div class="nav-tab" onclick="goTo('quiz')" id="tab-quiz">🧠 Quiz</div>
+    <div class="nav-tab" onclick="goTo('badges')" id="tab-badges">🏆 Badges</div>
+  </div>
+</div>
+
+<main>
+
+<!-- ========== HOME ========== -->
+<div class="screen active" id="screen-welcome">
+  <div class="section-header">
+    <div class="pill">🚀 8 Missions · India Edition</div>
+    <h2>Welcome back, Cyber Guardian! 🇮🇳</h2>
+    <p>Complete all 8 missions to become a <strong style="color:var(--accent)">Certified CyberShield Champion</strong>. Each mission teaches a real skill you need online!</p>
+  </div>
+  <div class="level-bar-wrap">
+    <div style="display:flex;justify-content:space-between;font-size:.78rem;color:var(--muted);margin-bottom:5px"><span>Level <span id="homeLvl">1</span> Progress</span><span id="homeXPLeft">0 / 200 XP to Level 2</span></div>
+    <div class="level-bar"><div class="level-fill" id="homeLvlBar" style="width:0%"></div></div>
+  </div>
+  <div class="hero-grid" style="grid-template-columns:1fr 1fr 1fr 1fr">
+    <div class="mission-card" id="mc-password" onclick="goTo('password')"><div class="icon">🔐</div><h3>Password Fortress</h3><p>Build unbreakable passwords</p><span class="xp">+25 XP · Drag & Drop</span></div>
+    <div class="mission-card" id="mc-phishing" onclick="goTo('phishing')"><div class="icon">🎣</div><h3>Phishing Spotter</h3><p>Find red flags in fake emails</p><span class="xp">+30 XP · Click Sim</span></div>
+    <div class="mission-card" id="mc-scenarios" onclick="goTo('scenarios')"><div class="icon">💬</div><h3>Stranger Danger</h3><p>Safe choices in online chats</p><span class="xp">+30 XP · Roleplay</span></div>
+    <div class="mission-card" id="mc-sort" onclick="goTo('sort')"><div class="icon">📂</div><h3>Safe or Unsafe?</h3><p>Sort online activities</p><span class="xp">+25 XP · Drag & Sort</span></div>
+    <div class="mission-card" id="mc-privacy" onclick="goTo('privacy')"><div class="icon">🔒</div><h3>Privacy Settings</h3><p>Configure your digital privacy</p><span class="xp">+25 XP · Simulator</span></div>
+    <div class="mission-card" id="mc-cyberbully" onclick="goTo('cyberbully')"><div class="icon">🚫</div><h3>Stop Cyberbullying</h3><p>Respond to online bullying</p><span class="xp">+30 XP · Chat Sim</span></div>
+    <div class="mission-card" id="mc-network" onclick="goTo('network')"><div class="icon">📶</div><h3>Safe Wi-Fi</h3><p>Choose safe networks</p><span class="xp">+20 XP · Sorting</span></div>
+    <div class="mission-card" id="mc-quiz" onclick="goTo('quiz')"><div class="icon">🧠</div><h3>Final Quiz</h3><p>Test everything you learned!</p><span class="xp">+50 XP · Quiz</span></div>
+  </div>
+  <div class="tip-box">💡 <span><strong>Cyber Fact:</strong> India reported over 14 lakh cybercrime cases in 2023. Knowing how to stay safe protects you, your family, and your future!</span></div>
+  <button class="btn-start" onclick="goTo('password')">Start Mission 1 🚀</button>
+</div>
+
+<!-- ========== M1: PASSWORD ========== -->
+<div class="screen" id="screen-password">
+  <div class="section-header">
+    <div class="pill">Mission 1 · Drag & Drop</div>
+    <h2>🔐 Build Your Password Fortress</h2>
+    <p>Drag <strong style="color:var(--safe)">GOOD</strong> ingredients into your password builder. Avoid the <strong style="color:var(--danger)">BAD</strong> ones!</p>
+  </div>
+  <div class="two-col">
+    <div>
+      <p style="font-size:.82rem;color:var(--muted);margin-bottom:10px">📦 Drag these ingredients:</p>
+      <div id="chipSource" style="display:flex;flex-wrap:wrap;gap:8px">
+        <div class="drag-chip" draggable="true" data-type="good" data-val="Capital" ondragstart="dragStart(event)">🔠 Capital Letter</div>
+        <div class="drag-chip" draggable="true" data-type="bad" data-val="YourName" ondragstart="dragStart(event)">😐 Your Name</div>
+        <div class="drag-chip" draggable="true" data-type="good" data-val="Symbol" ondragstart="dragStart(event)">🔣 Symbol (@#!)</div>
+        <div class="drag-chip" draggable="true" data-type="bad" data-val="Birthday" ondragstart="dragStart(event)">🎂 Birthday</div>
+        <div class="drag-chip" draggable="true" data-type="good" data-val="Number" ondragstart="dragStart(event)">🔢 Number (0-9)</div>
+        <div class="drag-chip" draggable="true" data-type="bad" data-val="123456" ondragstart="dragStart(event)">😬 "123456"</div>
+        <div class="drag-chip" draggable="true" data-type="good" data-val="12chars" ondragstart="dragStart(event)">📏 12+ Characters</div>
+        <div class="drag-chip" draggable="true" data-type="bad" data-val="petname" ondragstart="dragStart(event)">🐾 Pet's Name</div>
+        <div class="drag-chip" draggable="true" data-type="good" data-val="RandomWords" ondragstart="dragStart(event)">🌀 Random Words</div>
+        <div class="drag-chip" draggable="true" data-type="bad" data-val="password" ondragstart="dragStart(event)">🚫 "password"</div>
+        <div class="drag-chip" draggable="true" data-type="good" data-val="Unique" ondragstart="dragStart(event)">✨ Unique Per Site</div>
+        <div class="drag-chip" draggable="true" data-type="bad" data-val="Shared" ondragstart="dragStart(event)">👥 Shared w/ Friends</div>
+      </div>
+
+      <div style="margin-top:20px;background:var(--card2);border-radius:14px;padding:16px">
+        <p style="font-family:'Baloo 2',cursive;font-weight:700;margin-bottom:10px;font-size:.9rem">📚 What makes a strong password?</p>
+        <ul style="font-size:.8rem;color:var(--muted);list-style:none;display:flex;flex-direction:column;gap:7px">
+          <li>✅ At least <strong style="color:var(--text)">12 characters</strong> long</li>
+          <li>✅ Mix of <strong style="color:var(--text)">UPPERCASE + lowercase</strong></li>
+          <li>✅ Include <strong style="color:var(--text)">numbers (0–9)</strong></li>
+          <li>✅ Include <strong style="color:var(--text)">symbols (@, #, !, $)</strong></li>
+          <li>❌ Never use <strong style="color:var(--danger)">your name or birthday</strong></li>
+          <li>❌ Never use <strong style="color:var(--danger)">common words</strong> like "password"</li>
+          <li>❌ Never <strong style="color:var(--danger)">share your password</strong> with friends</li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <p style="font-size:.82rem;color:var(--muted);margin-bottom:10px">🏗️ Drop into your password:</p>
+      <div class="drop-zone" id="pwDrop" ondragover="event.preventDefault();this.classList.add('drag-over')" ondragleave="this.classList.remove('drag-over')" ondrop="dropPassword(event)">
+        <span style="color:var(--muted);font-size:.83rem">Drop ingredients here…</span>
+      </div>
+      <div style="margin-top:12px">
+        <div style="display:flex;justify-content:space-between;font-size:.78rem;color:var(--muted)"><span>Password Strength</span><strong id="strengthText" style="color:var(--text)">0%</strong></div>
+        <div class="strength-bar"><div class="strength-fill" id="strengthFill" style="width:0%;background:var(--danger)"></div></div>
+        <div id="strengthLabel" style="font-size:.75rem;margin-top:5px;color:var(--muted)">Add good ingredients…</div>
+      </div>
+      <div class="feedback-msg" id="pwFeedback"></div>
+      <div style="display:flex;gap:10px;margin-top:14px;flex-wrap:wrap">
+        <button class="btn btn-primary" onclick="checkPassword()">Check Password 🔍</button>
+        <button class="btn btn-secondary" onclick="resetPassword()">↩ Reset</button>
+      </div>
+
+      <div style="margin-top:20px;background:var(--card2);border-radius:14px;padding:16px">
+        <p style="font-family:'Baloo 2',cursive;font-weight:700;margin-bottom:8px;font-size:.9rem">🔑 Password Examples</p>
+        <div style="font-size:.78rem;display:flex;flex-direction:column;gap:8px">
+          <div style="background:rgba(255,71,87,.1);border:1px solid rgba(255,71,87,.2);border-radius:8px;padding:8px"><span style="color:var(--danger)">❌ Weak:</span> <code style="color:#fca5a5">arjun2012</code> — uses name + year</div>
+          <div style="background:rgba(255,200,0,.08);border:1px solid rgba(255,200,0,.2);border-radius:8px;padding:8px"><span style="color:var(--accent)">⚠️ OK:</span> <code style="color:var(--accent)">Arjun@2012!</code> — better but still uses name</div>
+          <div style="background:rgba(46,213,115,.1);border:1px solid rgba(46,213,115,.2);border-radius:8px;padding:8px"><span style="color:var(--safe)">✅ Strong:</span> <code style="color:#86efac">Mango#Tiger!92</code> — random, mixed, long!</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="tip-box">💡 <strong>Pro Tip:</strong> Use a passphrase! Three random words + numbers + symbols = super strong. Example: <em>BlueMango#Cricket7!</em></div>
+  <div style="margin-top:18px;display:flex;gap:10px">
+    <button class="btn btn-secondary" onclick="goTo('welcome')">← Home</button>
+    <button class="btn btn-primary" onclick="goTo('phishing')">Next Mission →</button>
+  </div>
+</div>
+
+<!-- ========== M2: PHISHING ========== -->
+<div class="screen" id="screen-phishing">
+  <div class="section-header">
+    <div class="pill blue">Mission 2 · Email Simulation</div>
+    <h2>🎣 Spot the Phishing Email</h2>
+    <p>This email looks suspicious! Click on every <strong style="color:var(--danger)">red flag</strong> you can find. Find all <strong id="totalClues">6</strong> clues!</p>
+  </div>
+  <div class="tip-box" style="margin-bottom:14px">🔍 <strong>Phishing</strong> is when hackers pretend to be banks, companies, or friends to steal your information. The word comes from "fishing" — they throw a fake bait hoping you'll bite!</div>
+  <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px" id="clueCounter"></div>
+  <div class="email-sim">
+    <div class="email-toolbar">
+      <div class="email-dot" style="background:#ff5f57"></div>
+      <div class="email-dot" style="background:#ffbd2e"></div>
+      <div class="email-dot" style="background:#28c840"></div>
+      <span style="font-size:.78rem;color:#555;margin-left:8px">📧 Gmail — Inbox</span>
+    </div>
+    <div class="email-field"><span class="lbl">From:</span><span id="clue-from" class="suspicious" onclick="foundClue('from','🚩 FAKE SENDER! Real SBI emails come from @sbi.co.in — not random domains like .net or .tk. Always check the email address carefully!')"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c5b6b0b5b5aab7b185b6a7ace8b6a0a6b0b7a0a9aaa2acabe8acaba1aca4ebaba0b1">[email&#160;protected]</a></span></div>
+    <div class="email-field"><span class="lbl">To:</span> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a2c6c7c3d08cc1d7d1d6cdcfc7d0e2c5cfc3cbce8cc1cdcf">[email&#160;protected]</a></div>
+    <div class="email-field"><span class="lbl">Subject:</span> <span id="clue-subject" class="suspicious" onclick="foundClue('subject','🚩 URGENT = SCAM! Scammers create panic so you act without thinking. Real banks never threaten to close accounts via email!')">⚠️ URGENT: Your SBI Account Will Be CLOSED in 24 Hours!</span></div>
+    <div class="email-field"><span class="lbl">Date:</span> <span id="clue-date" class="suspicious" onclick="foundClue('date','🚩 WRONG DATE! Check the email date — scammers often use old or odd dates because they send millions of emails at once.')">Mon, 32 Jan 2024 03:47:12</span></div>
+    <div class="email-body">
+      <p>Dear <span id="clue-greeting" class="suspicious" onclick="foundClue('greeting','🚩 NO NAME! Real banks always use your real name. \"Dear Customer\" without your name means it was sent to millions of people!')">Dear Valued Customer</span>,</p><br>
+      <p>We have detected <strong>suspicious activity</strong> on your account. To avoid suspension, verify your details immediately:</p><br>
+      <p>👉 <span id="clue-link" class="suspicious" onclick="foundClue('link','🚩 FAKE URL! This link is not sbi.co.in. Hover over links before clicking — if the URL looks strange, don\'t click! Legitimate sites use .in or .com, not .tk or .xyz')">www.sbi-verify-now-account.tk/secure/login</span></p><br>
+      <p>Please provide: <span id="clue-info" class="suspicious" onclick="foundClue('info','🚩 ASKING FOR SECRET INFO! No real bank, company, or government ever asks for your PIN, OTP, or Aadhaar via email. This is the biggest sign of a scam!')">Account Number • ATM PIN • OTP • Aadhaar Number • CVV</span></p>
+      <br><p>Failure to verify within 24 hours will result in permanent account closure and legal action.</p>
+      <br><p>Regards,<br><em>SBI Security Team™</em><br>State Bank of INDIA Support</p>
+    </div>
+  </div>
+  <div class="feedback-msg" id="phishingFeedback" style="margin-top:13px"></div>
+  <div id="phishingWin" style="display:none;margin-top:14px" class="card glow-safe">
+    <h3 style="font-family:'Baloo 2',cursive;color:var(--safe)">🎉 Outstanding Detective! All 6 clues found! +30 XP</h3>
+    <p style="margin-top:8px;font-size:.86rem;color:var(--muted)"><strong style="color:var(--text)">Remember the 3 S Rule:</strong> Stop → Think → Seek help from an adult before clicking any suspicious link!</p>
+  </div>
+  <div class="card" style="margin-top:16px">
+    <p style="font-family:'Baloo 2',cursive;font-weight:700;margin-bottom:10px">📋 Phishing Red Flag Checklist</p>
+    <div class="three-col" style="gap:10px">
+      <div style="font-size:.78rem;color:var(--muted)">🔴 Fake sender email<br>🔴 Urgent threats<br>🔴 Generic "Dear Customer"</div>
+      <div style="font-size:.78rem;color:var(--muted)">🔴 Suspicious links<br>🔴 Asking for OTP/PIN<br>🔴 Grammar mistakes</div>
+      <div style="font-size:.78rem;color:var(--muted)">🔴 Wrong dates<br>🔴 Too-good offers<br>🔴 Unknown attachments</div>
+    </div>
+  </div>
+  <div style="margin-top:16px;display:flex;gap:10px">
+    <button class="btn btn-secondary" onclick="goTo('password')">← Back</button>
+    <button class="btn btn-primary" onclick="goTo('scenarios')">Next Mission →</button>
+  </div>
+</div>
+
+<!-- ========== M3: SCENARIOS ========== -->
+<div class="screen" id="screen-scenarios">
+  <div class="section-header">
+    <div class="pill purple">Mission 3 · Roleplay</div>
+    <h2>💬 Online Stranger Danger</h2>
+    <p>Help Arjun make safe decisions when strangers contact him online. 5 real-life situations!</p>
+  </div>
+  <div class="progress-steps" id="scenarioProgress"></div>
+  <div id="scenarioContainer"></div>
+  <div style="margin-top:18px;display:flex;gap:10px">
+    <button class="btn btn-secondary" onclick="goTo('phishing')">← Back</button>
+    <button class="btn btn-primary" onclick="goTo('sort')">Next Mission →</button>
+  </div>
+</div>
+
+<!-- ========== M4: SORT ========== -->
+<div class="screen" id="screen-sort">
+  <div class="section-header">
+    <div class="pill teal">Mission 4 · Drag & Sort</div>
+    <h2>📂 Safe or Unsafe Activity?</h2>
+    <p>Drag each card into the correct bin. Sort all 12 to complete the mission!</p>
+  </div>
+  <div id="sortSource" style="display:flex;flex-wrap:wrap;gap:9px;margin-bottom:18px;min-height:44px;background:var(--card2);padding:14px;border-radius:14px"></div>
+  <div class="two-col">
+    <div class="sort-bin safe-bin" id="bin-safe" ondragover="event.preventDefault();this.classList.add('drag-over')" ondragleave="this.classList.remove('drag-over')" ondrop="dropSort(event,'safe')">
+      <div class="bin-title"><span style="color:var(--safe)">✅</span> Safe Activities</div>
+      <div id="placed-safe"></div>
+    </div>
+    <div class="sort-bin unsafe-bin" id="bin-unsafe" ondragover="event.preventDefault();this.classList.add('drag-over')" ondragleave="this.classList.remove('drag-over')" ondrop="dropSort(event,'unsafe')">
+      <div class="bin-title"><span style="color:var(--danger)">❌</span> Unsafe Activities</div>
+      <div id="placed-unsafe"></div>
+    </div>
+  </div>
+  <div class="feedback-msg" id="sortFeedback" style="margin-top:14px"></div>
+  <div id="sortScore" style="margin-top:10px;font-family:'Baloo 2',cursive;font-size:1.05rem;color:var(--accent)"></div>
+  <button class="btn btn-green" style="margin-top:13px;display:none" id="sortDone" onclick="finishSort()">Check My Answers ✔️</button>
+  <div style="margin-top:16px;display:flex;gap:10px">
+    <button class="btn btn-secondary" onclick="goTo('scenarios')">← Back</button>
+    <button class="btn btn-primary" onclick="goTo('privacy')">Next Mission →</button>
+  </div>
+</div>
+
+<!-- ========== M5: PRIVACY SIMULATOR ========== -->
+<div class="screen" id="screen-privacy">
+  <div class="section-header">
+    <div class="pill">Mission 5 · Settings Simulator</div>
+    <h2>🔒 Configure Your Privacy</h2>
+    <p>These are Priya's Instagram privacy settings. Toggle each one correctly to protect her account!</p>
+  </div>
+  <div class="two-col">
+    <div>
+      <div class="settings-panel" id="privacyPanel">
+        <div class="settings-header"><span style="font-size:1.3rem">📱</span><span style="font-family:'Baloo 2',cursive;font-weight:700">Priya's Instagram Settings</span></div>
+        <div class="settings-row" id="sr-private">
+          <div class="settings-info"><h4>Private Account</h4><p>Only approved followers see your posts</p></div>
+          <label class="toggle-wrap"><input type="checkbox" id="tog-private" onchange="updatePrivacy()"><span class="toggle-slider"></span></label>
+        </div>
+        <div class="settings-row" id="sr-location">
+          <div class="settings-info"><h4>Share Location in Posts</h4><p>Automatically tag your location</p></div>
+          <label class="toggle-wrap"><input type="checkbox" id="tog-location" checked onchange="updatePrivacy()"><span class="toggle-slider"></span></label>
+        </div>
+        <div class="settings-row" id="sr-dms">
+          <div class="settings-info"><h4>Allow DMs from Everyone</h4><p>Strangers can send you messages</p></div>
+          <label class="toggle-wrap"><input type="checkbox" id="tog-dms" checked onchange="updatePrivacy()"><span class="toggle-slider"></span></label>
+        </div>
+        <div class="settings-row" id="sr-activity">
+          <div class="settings-info"><h4>Show Activity Status</h4><p>Others see when you're online</p></div>
+          <label class="toggle-wrap"><input type="checkbox" id="tog-activity" checked onchange="updatePrivacy()"><span class="toggle-slider"></span></label>
+        </div>
+        <div class="settings-row" id="sr-2fa">
+          <div class="settings-info"><h4>Two-Factor Authentication</h4><p>Extra security code when logging in</p></div>
+          <label class="toggle-wrap"><input type="checkbox" id="tog-2fa" onchange="updatePrivacy()"><span class="toggle-slider"></span></label>
+        </div>
+        <div class="settings-row" id="sr-story">
+          <div class="settings-info"><h4>Share Story with Everyone</h4><p>All users, not just followers</p></div>
+          <label class="toggle-wrap"><input type="checkbox" id="tog-story" checked onchange="updatePrivacy()"><span class="toggle-slider"></span></label>
+        </div>
+        <div class="settings-row" id="sr-tags">
+          <div class="settings-info"><h4>Manual Tag Approval</h4><p>You approve before being tagged</p></div>
+          <label class="toggle-wrap"><input type="checkbox" id="tog-tags" onchange="updatePrivacy()"><span class="toggle-slider"></span></label>
+        </div>
+      </div>
+      <button class="btn btn-primary" style="margin-top:14px" onclick="checkPrivacy()">Check My Settings ✔️</button>
+    </div>
+    <div>
+      <div class="privacy-score-wrap card">
+        <div class="privacy-ring" id="privacyRing">0%</div>
+        <p style="font-family:'Baloo 2',cursive;font-weight:700;margin-bottom:12px" id="privacyLabel">Configure the settings!</p>
+        <ul class="privacy-feedback-list" id="privacyFeedbackList"></ul>
+      </div>
+      <div class="card" style="margin-top:0">
+        <p style="font-family:'Baloo 2',cursive;font-weight:700;margin-bottom:10px;font-size:.9rem">🎓 Why Privacy Matters</p>
+        <ul style="font-size:.78rem;color:var(--muted);list-style:none;display:flex;flex-direction:column;gap:7px">
+          <li>📍 Sharing location lets strangers know where you are</li>
+          <li>👁️ Public accounts can be seen by <strong style="color:var(--text)">anyone in the world</strong></li>
+          <li>🔐 2FA stops hackers even if they get your password</li>
+          <li>💬 DMs from strangers can be dangerous</li>
+          <li>🏷️ Unapproved tags can hurt your reputation</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="feedback-msg" id="privacyFeedback" style="margin-top:14px"></div>
+  <div style="margin-top:16px;display:flex;gap:10px">
+    <button class="btn btn-secondary" onclick="goTo('sort')">← Back</button>
+    <button class="btn btn-primary" onclick="goTo('cyberbully')">Next Mission →</button>
+  </div>
+</div>
+
+<!-- ========== M6: CYBERBULLYING ========== -->
+<div class="screen" id="screen-cyberbully">
+  <div class="section-header">
+    <div class="pill blue">Mission 6 · Chat Simulation</div>
+    <h2>🚫 Stop Cyberbullying</h2>
+    <p>Rahul is being bullied online. Read the chat and choose the best responses!</p>
+  </div>
+  <div class="two-col">
+    <div>
+      <div class="chat-window" id="chatWindow">
+        <div class="chat-header">
+          <div class="chat-avatar" style="background:rgba(255,71,87,.15)">😤</div>
+          <div><div style="font-family:'Baloo 2',cursive;font-weight:700;font-size:.9rem">ClassGroup2024</div><div style="font-size:.72rem;color:var(--muted)">12 members</div></div>
+        </div>
+        <div class="chat-msgs" id="chatMsgs">
+          <div><div class="chat-sender">Bully_Kid</div><div class="chat-bubble bully">Hey everyone, look at Rahul's dance video 😂😂 he's so embarrassing!</div></div>
+          <div><div class="chat-sender">Bully_Kid</div><div class="chat-bubble bully">Nobody likes you Rahul. You should just quit school 😂</div></div>
+          <div><div class="chat-sender">Rahul</div><div class="chat-bubble me">Please stop...</div></div>
+          <div><div class="chat-sender">Bully_Kid</div><div class="chat-bubble bully">Aww cry baby! Go tell your mummy 😆</div></div>
+        </div>
+      </div>
+      <div style="margin-top:14px;background:var(--card2);border-radius:12px;padding:14px">
+        <p style="font-family:'Baloo 2',cursive;font-weight:700;font-size:.9rem;margin-bottom:10px">What should Rahul do?</p>
+        <div id="bullyChoices"></div>
+        <div class="feedback-msg" id="bullyFeedback" style="margin-top:10px"></div>
+      </div>
+    </div>
+    <div>
+      <div class="card">
+        <p style="font-family:'Baloo 2',cursive;font-weight:700;margin-bottom:12px">📚 Cyberbullying: What You Must Know</p>
+        <div style="display:flex;flex-direction:column;gap:10px;font-size:.8rem">
+          <div style="background:rgba(255,71,87,.08);border-radius:10px;padding:12px;border-left:3px solid var(--danger)"><strong style="color:var(--danger)">What is it?</strong><br><span style="color:var(--muted)">Using technology to harass, threaten, or embarrass someone repeatedly.</span></div>
+          <div style="background:rgba(46,213,115,.08);border-radius:10px;padding:12px;border-left:3px solid var(--safe)"><strong style="color:var(--safe)">If it happens to you:</strong><br><span style="color:var(--muted)">Don't respond. Take screenshots. Block the bully. Tell a trusted adult immediately.</span></div>
+          <div style="background:rgba(79,195,247,.08);border-radius:10px;padding:12px;border-left:3px solid var(--sky)"><strong style="color:var(--sky)">If you see it:</strong><br><span style="color:var(--muted)">Don't laugh or share. Support the victim privately. Report to an adult or admin.</span></div>
+          <div style="background:rgba(255,215,0,.08);border-radius:10px;padding:12px;border-left:3px solid var(--accent)"><strong style="color:var(--accent)">In India:</strong><br><span style="color:var(--muted)">Cyberbullying can be reported under IT Act Section 66A. Helpline: <strong style="color:var(--text)">1930</strong></span></div>
+        </div>
+      </div>
+      <div id="bullyResult" style="display:none" class="card glow-safe">
+        <h4 style="font-family:'Baloo 2',cursive;color:var(--safe)">✅ Great choices! +30 XP</h4>
+        <p style="font-size:.82rem;color:var(--muted);margin-top:8px">Remember: <strong style="color:var(--text)">BLOCK → SCREENSHOT → TELL an adult.</strong> Never fight back online — it makes things worse!</p>
+      </div>
+    </div>
+  </div>
+  <div style="margin-top:16px;display:flex;gap:10px">
+    <button class="btn btn-secondary" onclick="goTo('privacy')">← Back</button>
+    <button class="btn btn-primary" onclick="goTo('network')">Next Mission →</button>
+  </div>
+</div>
+
+<!-- ========== M7: NETWORK SAFETY ========== -->
+<div class="screen" id="screen-network">
+  <div class="section-header">
+    <div class="pill teal">Mission 7 · Wi-Fi Sorting</div>
+    <h2>📶 Choose Safe Wi-Fi Networks</h2>
+    <p>Arjun is at a mall with his family. Which Wi-Fi networks are safe to connect to? Click on each to decide!</p>
+  </div>
+  <div class="three-col" id="wifiGrid" style="margin-bottom:18px"></div>
+  <div class="feedback-msg" id="wifiFeedback"></div>
+  <div id="wifiResult" style="display:none;margin-top:14px" class="card glow-safe">
+    <h4 style="font-family:'Baloo 2',cursive;color:var(--safe)">🎉 Wi-Fi Expert! +20 XP</h4>
+    <p style="font-size:.82rem;color:var(--muted);margin-top:8px">Always verify free Wi-Fi with staff, use a VPN on public networks, and never access banking or personal accounts on unknown networks!</p>
+  </div>
+  <div class="card" style="margin-top:16px">
+    <p style="font-family:'Baloo 2',cursive;font-weight:700;margin-bottom:10px">🌐 Public Wi-Fi Safety Rules</p>
+    <div class="three-col" style="gap:10px;font-size:.78rem;color:var(--muted)">
+      <div>🔒 Look for <strong style="color:var(--text)">HTTPS</strong> in website URLs<br><br>📵 Avoid banking/personal login on public Wi-Fi</div>
+      <div>✅ Confirm network name with staff<br><br>📱 Turn off <strong style="color:var(--text)">auto-connect</strong> to Wi-Fi</div>
+      <div>🛡️ Use a <strong style="color:var(--text)">VPN</strong> for extra protection<br><br>🔄 Forget public networks after use</div>
+    </div>
+  </div>
+  <div style="margin-top:16px;display:flex;gap:10px">
+    <button class="btn btn-secondary" onclick="goTo('cyberbully')">← Back</button>
+    <button class="btn btn-primary" onclick="goTo('quiz')">Final Quiz →</button>
+  </div>
+</div>
+
+<!-- ========== M8: QUIZ ========== -->
+<div class="screen" id="screen-quiz">
+  <div class="section-header">
+    <div class="pill purple">Mission 8 · 3-Level Quiz Challenge</div>
+    <h2>🧠 CyberShield Quiz Arena</h2>
+    <p>Three difficulty levels! Complete Level 1 to unlock Level 2, and Level 2 to unlock the Expert Level 3!</p>
+  </div>
+
+  <div class="quiz-level-tabs">
+    <div class="quiz-level-tab active" id="qtab-1" onclick="switchQuizLevel(1)">
+      🟢 Level 1 — Beginner <span class="level-badge-inline green" id="qbadge-1">10 Qs</span>
+    </div>
+    <div class="quiz-level-tab locked" id="qtab-2" onclick="switchQuizLevel(2)">
+      🟡 Level 2 — Intermediate <span class="level-badge-inline" id="qbadge-2">🔒 Locked</span>
+    </div>
+    <div class="quiz-level-tab locked" id="qtab-3" onclick="switchQuizLevel(3)">
+      🔴 Level 3 — Expert <span class="level-badge-inline" id="qbadge-3">🔒 Locked</span>
+    </div>
+  </div>
+
+  <div id="quizLevelInfo" class="tip-box" style="margin-bottom:16px">🟢 <strong>Level 1 — Beginner:</strong> Core concepts from all 8 missions. Get 7/10 to unlock Level 2 and earn the Quiz Champion badge!</div>
+
+  <div id="quizProgress" style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px"></div>
+  <div id="quizContainer"></div>
+  <div id="quizSummary" style="display:none" class="card glow-gold">
+    <div style="text-align:center;padding:10px">
+      <div style="font-size:2.5rem" id="quizSummaryEmoji">🏆</div>
+      <h3 style="font-family:'Baloo 2',cursive;font-size:1.5rem;color:var(--accent)" id="quizSummaryTitle"></h3>
+      <div id="quizSummaryScore" style="font-family:'Baloo 2',cursive;font-size:2rem;margin:10px 0"></div>
+      <p id="quizSummaryMsg" style="color:var(--muted);font-size:.85rem;margin-bottom:16px"></p>
+      <div id="quizNextActions" style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap"></div>
+    </div>
+  </div>
+  <div style="margin-top:16px;display:flex;gap:10px">
+    <button class="btn btn-secondary" onclick="goTo('network')">← Back</button>
+  </div>
+</div>
+
+<!-- ========== BADGES ========== -->
+<div class="screen" id="screen-badges">
+  <div class="confetti-wrap">
+    <div style="font-size:3rem;animation:pulse 1.5s infinite">🎉</div>
+    <h2>Your Cyber Guardian Profile</h2>
+    <p style="color:var(--muted);margin-top:6px">Earn all badges to become a Certified CyberShield Champion!</p>
+    <div style="font-family:'Baloo 2',cursive;font-size:1.2rem;color:var(--accent);margin-top:10px">Total: <span id="finalScore">0</span> XP · Level <span id="finalLevel">1</span></div>
+    <div class="level-bar-wrap" style="max-width:400px;margin:14px auto 0">
+      <div class="level-bar"><div class="level-fill" id="badgeLvlBar" style="width:0%"></div></div>
+    </div>
+  </div>
+
+  <!-- CERTIFICATE SECTION -->
+  <div class="card glow-gold" id="certSection" style="display:none;margin-bottom:20px">
+    <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+      <div style="font-size:2.5rem">🏅</div>
+      <div style="flex:1">
+        <h3 style="font-family:'Baloo 2',cursive;font-size:1.2rem;color:var(--accent)">🎓 You've earned a Printable Certificate!</h3>
+        <p style="font-size:.82rem;color:var(--muted);margin-top:4px">Enter your name and generate your official CyberShield India certificate to print and display!</p>
+      </div>
+    </div>
+    <div style="display:flex;gap:10px;margin-top:14px;flex-wrap:wrap;align-items:center">
+      <input type="text" id="studentNameInput" placeholder="Enter your full name here..." style="flex:1;min-width:200px;background:var(--card2);border:2px solid rgba(255,215,0,.3);border-radius:10px;padding:10px 14px;font-family:'Baloo 2',cursive;font-size:.95rem;color:var(--text);outline:none" oninput="this.style.borderColor='var(--saffron)'">
+      <button class="btn btn-primary" onclick="openCertificate()" style="flex-shrink:0">🖨️ Generate Certificate</button>
+    </div>
+  </div>
+
+  <div class="badges-grid">
+    <div class="badge-card" id="badge-password"><div class="badge-icon">🔐</div><h4>Password Pro</h4><p>Built a super-strong password</p></div>
+    <div class="badge-card" id="badge-phishing"><div class="badge-icon">🎣</div><h4>Phish Detector</h4><p>Found all phishing clues</p></div>
+    <div class="badge-card" id="badge-scenarios"><div class="badge-icon">💬</div><h4>Smart Chatter</h4><p>Made safe choices in chats</p></div>
+    <div class="badge-card" id="badge-sort"><div class="badge-icon">📂</div><h4>Safety Sorter</h4><p>Sorted all online activities</p></div>
+    <div class="badge-card" id="badge-privacy"><div class="badge-icon">🔒</div><h4>Privacy Ninja</h4><p>Configured all privacy settings</p></div>
+    <div class="badge-card" id="badge-cyberbully"><div class="badge-icon">🤝</div><h4>Anti-Bully Hero</h4><p>Handled cyberbullying correctly</p></div>
+    <div class="badge-card" id="badge-network"><div class="badge-icon">📶</div><h4>Wi-Fi Wizard</h4><p>Identified safe networks</p></div>
+    <div class="badge-card" id="badge-quiz"><div class="badge-icon">🧠</div><h4>Quiz Champion</h4><p>Aced the Level 1 quiz</p></div>
+    <div class="badge-card" id="badge-quiz2"><div class="badge-icon lock">🥈</div><h4 class="lock">Intermediate Scholar</h4><p class="lock">Passed Level 2 quiz (7/12)</p></div>
+    <div class="badge-card" id="badge-quiz3"><div class="badge-icon lock">🥇</div><h4 class="lock">Cyber Expert</h4><p class="lock">Passed Level 3 expert quiz</p></div>
+    <div class="badge-card" id="badge-allstar"><div class="badge-icon lock">⭐</div><h4 class="lock">All-Star Guardian</h4><p class="lock">Complete all 8 missions</p></div>
+    <div class="badge-card" id="badge-india" style="border-color:rgba(255,153,51,.3)"><div class="badge-icon">🇮🇳</div><h4>Digital India Hero</h4><p>Protecting India's digital future</p></div>
+    <div class="badge-card" id="badge-speedster" style="opacity:.4"><div class="badge-icon lock">⚡</div><h4 class="lock">Speedster</h4><p class="lock">Finish quiz in under 3 min</p></div>
+    <div class="badge-card" id="badge-perfect" style="opacity:.4"><div class="badge-icon lock">💯</div><h4 class="lock">Perfectionist</h4><p class="lock">Score 100% on any quiz level</p></div>
+    <div class="badge-card" id="badge-trilevel" style="opacity:.4"><div class="badge-icon lock">🔱</div><h4 class="lock">Triple Champion</h4><p class="lock">Pass all 3 quiz levels</p></div>
+    <div class="badge-card" id="badge-champion" style="opacity:.4;border-color:rgba(255,215,0,.2)"><div class="badge-icon lock">👑</div><h4 class="lock">Grand Champion</h4><p class="lock">Complete everything perfectly</p></div>
+  </div>
+  <div class="tip-box" style="margin-top:22px">📢 <span><strong>Share your knowledge!</strong> Teach your family what you've learned. Being a Cyber Guardian means protecting others too! National Cyber Helpline: <strong style="color:var(--text)">1930</strong></span></div>
+  <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
+    <button class="btn btn-primary" onclick="restartGame()">🔄 Play Again</button>
+    <button class="btn btn-secondary" onclick="goTo('welcome')">🏠 Home</button>
+  </div>
+</div>
+
+<!-- ========== CERTIFICATE OVERLAY ========== -->
+<div class="cert-overlay" id="certOverlay">
+  <div style="max-width:720px;width:100%">
+    <div style="display:flex;justify-content:flex-end;gap:10px;margin-bottom:12px">
+      <button class="btn btn-green cert-print-btn" onclick="window.print()">🖨️ Print Certificate</button>
+      <button class="btn btn-secondary cert-close-btn" onclick="document.getElementById('certOverlay').classList.remove('open')">✕ Close</button>
+    </div>
+    <div class="certificate" id="certificateEl">
+      <div class="cert-watermark">CYBERSHIELD</div>
+      <div class="cert-border"></div>
+      <div class="cert-header-band">
+        <h1>🛡️ CyberShield India</h1>
+        <p>Ministry of Digital Literacy · Class 6 Cyber Safety Programme</p>
+      </div>
+      <div class="cert-inner">
+        <div class="cert-title">Certificate of Achievement</div>
+        <div style="font-size:.82rem;color:#888;margin-bottom:14px">This is to proudly certify that</div>
+        <div class="cert-name" id="certStudentName">Student Name</div>
+        <div class="cert-body">
+          has successfully completed the <strong>CyberShield India 2.0</strong> Digital Safety Programme<br>
+          and demonstrated outstanding knowledge of online safety, cybercrime prevention,<br>
+          and responsible digital citizenship.
+        </div>
+        <div class="cert-badges-row" id="certBadgesRow"></div>
+        <div class="cert-score-row">
+          <div class="cert-score-item"><div class="val" id="certXP">0</div><div class="lbl">Total XP</div></div>
+          <div class="cert-score-item"><div class="val" id="certBadges">0</div><div class="lbl">Badges Earned</div></div>
+          <div class="cert-score-item"><div class="val" id="certLevel">1</div><div class="lbl">Guardian Level</div></div>
+          <div class="cert-score-item"><div class="val" id="certDate">—</div><div class="lbl">Date Awarded</div></div>
+        </div>
+        <div style="background:#f5f9ff;border:1px solid #d0e4f7;border-radius:10px;padding:12px;font-size:.8rem;color:#446;margin:14px 0">
+          🇮🇳 <em>"A digitally literate citizen is the backbone of Digital India."</em>
+        </div>
+        <div class="cert-footer">
+          <div class="cert-sig"><div class="sig-line"></div><div class="sig-label">CyberShield India Programme</div></div>
+          <div style="font-size:2rem">🏆</div>
+          <div class="cert-sig"><div class="sig-line"></div><div class="sig-label">Digital Safety Authority</div></div>
+        </div>
+      </div>
+      <div style="height:6px;background:linear-gradient(90deg,#FF9933 33%,#fff 33% 66%,#138808 66%)"></div>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<script>
+// ===== STATE =====
+let score = 0, level = 1;
+let badges = {password:false,phishing:false,scenarios:false,sort:false,privacy:false,cyberbully:false,network:false,quiz:false};
+let cluesFound = new Set();
+let dropped = [], sortPlacements = {}, privacyChecked = false;
+let currentScenario = 0, bullyStep = 0;
+let wifiAnswers = {}, wifiDone = false;
+let quizAnswers = {}, quizCurrent = 0, quizStartTime = 0;
+
+// ===== NAVIGATION =====
+function goTo(s) {
+  document.querySelectorAll('.screen').forEach(x=>x.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(x=>x.classList.remove('active'));
+  document.getElementById('screen-'+s).classList.add('active');
+  document.getElementById('tab-'+s).classList.add('active');
+  if(s==='badges') updateBadgesScreen();
+  if(s==='scenarios') renderScenarios();
+  if(s==='sort') initSort();
+  if(s==='network') initWifi();
+  if(s==='quiz') initQuiz();
+  if(s==='cyberbully') initBully();
+  updateHomeCards();
+}
+
+function addScore(pts, title, msg) {
+  score += pts;
+  level = Math.floor(score/200)+1;
+  document.getElementById('totalScore').textContent = score;
+  document.getElementById('levelDisp').textContent = level;
+  document.getElementById('badgeCount').textContent = Object.values(badges).filter(Boolean).length;
+  updateLevelBar();
+  showModal(title||'Mission Complete!', '+'+pts+' XP', msg||'Keep going to earn more badges!');
+}
+
+function updateLevelBar() {
+  const progress = (score % 200) / 200 * 100;
+  const bar = document.getElementById('homeLvlBar');
+  if(bar) { bar.style.width = progress+'%'; }
+  const homeLvl = document.getElementById('homeLvl');
+  if(homeLvl) homeLvl.textContent = level;
+  const homeXP = document.getElementById('homeXPLeft');
+  if(homeXP) homeXP.textContent = score+' / '+(level*200)+' XP to Level '+(level+1);
+}
+
+function showModal(title, xp, msg) {
+  document.getElementById('modalTitle').textContent = title;
+  document.getElementById('modalXP').textContent = xp;
+  document.getElementById('modalMsg').textContent = msg;
+  document.getElementById('levelModal').classList.add('open');
+}
+function closeModal() { document.getElementById('levelModal').classList.remove('open'); }
+
+function updateHomeCards() {
+  Object.keys(badges).forEach(k => {
+    const mc = document.getElementById('mc-'+k);
+    if(mc && badges[k]) {
+      mc.classList.add('done');
+      if(!mc.querySelector('.done-badge')) {
+        const xp = mc.querySelector('.xp');
+        if(xp) { xp.className='done-badge'; xp.textContent='✅ Completed'; }
+      }
+    }
+  });
+}
+
+// ===== M1: PASSWORD =====
+function dragStart(e) { e.dataTransfer.setData('text/plain',e.target.dataset.val); window._dragEl=e.target; }
+
+function dropPassword(e) {
+  e.preventDefault();
+  const zone=document.getElementById('pwDrop');
+  zone.classList.remove('drag-over');
+  const el=window._dragEl; if(!el) return;
+  const val=el.dataset.val; if(dropped.includes(val)) return;
+  dropped.push(val);
+  const chip=document.createElement('div');
+  chip.className='drag-chip '+(el.dataset.type==='good'?'good':'bad');
+  chip.textContent=el.textContent; chip.dataset.val=val; chip.dataset.type=el.dataset.type;
+  const ph=zone.querySelector('span'); if(ph) ph.remove();
+  zone.appendChild(chip);
+  updateStrength();
+}
+
+function updateStrength() {
+  let good=0,bad=0;
+  dropped.forEach(v=>{
+    const src=document.querySelector('#chipSource [data-val="'+v+'"]');
+    if(src){src.dataset.type==='good'?good++:bad++;}
+  });
+  const str=Math.max(0,Math.min(100,(good*18)-(bad*22)));
+  document.getElementById('strengthFill').style.width=str+'%';
+  document.getElementById('strengthFill').style.background=str<40?'#FF4757':str<70?'#FFD700':'#2ED573';
+  document.getElementById('strengthText').textContent=str+'%';
+  const lbl=document.getElementById('strengthLabel');
+  lbl.textContent=str<30?'⚠️ Very weak — add good ingredients!':str<60?'😐 Getting better — add more!':str<80?'👍 Good! A few more will help.':'🔥 Excellent! Strong password!';
+  lbl.style.color=str<40?'var(--danger)':str<70?'var(--accent)':'var(--safe)';
+}
+
+function checkPassword() {
+  let good=0,bad=0;
+  dropped.forEach(v=>{const src=document.querySelector('#chipSource [data-val="'+v+'"]');if(src){src.dataset.type==='good'?good++:bad++;}});
+  const fb=document.getElementById('pwFeedback'); fb.classList.add('show');
+  if(good>=4&&bad===0){
+    fb.className='feedback-msg show safe';
+    fb.textContent='🎉 Excellent! Super strong password with '+good+' good elements! +25 XP';
+    if(!badges.password){badges.password=true;addScore(25,'Password Fortress Complete!','Your password knowledge is now fortress-level strong!');markTab('password');}
+  } else if(bad>0){
+    fb.className='feedback-msg show danger';
+    fb.textContent='⚠️ You added '+bad+' weak element(s)! Remove: your name, birthday, "password", "123456", pet name, or shared passwords!';
+  } else {
+    fb.className='feedback-msg show info';
+    fb.textContent='💡 Add more good elements! You need at least 4: uppercase, symbols, numbers, 12+ chars, random words, and unique-per-site.';
+  }
+}
+
+function resetPassword() {
+  dropped=[];
+  const zone=document.getElementById('pwDrop');
+  zone.innerHTML='<span style="color:var(--muted);font-size:.83rem">Drop ingredients here…</span>';
+  document.getElementById('strengthFill').style.width='0%';
+  document.getElementById('strengthText').textContent='0%';
+  document.getElementById('strengthLabel').textContent='Add good ingredients…';
+  document.getElementById('pwFeedback').classList.remove('show');
+}
+
+// ===== M2: PHISHING =====
+const clueOrder=['from','subject','date','greeting','link','info'];
+function initPhishing() {
+  const ctr=document.getElementById('clueCounter'); ctr.innerHTML='';
+  clueOrder.forEach((id,i)=>{
+    const d=document.createElement('div');d.className='clue-dot';d.id='dot-'+id;
+    d.textContent=i+1; ctr.appendChild(d);
+  });
+}
+initPhishing();
+
+function foundClue(id,msg) {
+  if(cluesFound.has(id)) return;
+  cluesFound.add(id);
+  const el=document.getElementById('clue-'+id);
+  el.classList.add('found'); el.style.cursor='default';
+  const dot=document.getElementById('dot-'+id);
+  if(dot){dot.classList.add('found');dot.textContent='⚑';}
+  const fb=document.getElementById('phishingFeedback');
+  fb.className='feedback-msg show danger'; fb.textContent=msg;
+  if(cluesFound.size===6){
+    fb.style.display='none';
+    document.getElementById('phishingWin').style.display='block';
+    if(!badges.phishing){badges.phishing=true;addScore(30,'Phishing Detector!','You can now spot fake emails like a cybersecurity expert!');markTab('phishing');}
+  }
+}
+
+// ===== M3: SCENARIOS =====
+const scenarios=[
+  {id:0,avatar:'🎮',name:'Online Gaming',context:'Arjun is playing BGMI when player "ProGamer99" messages:',message:'"Bhai! I have 1000 UC (currency) for free! Just send your phone number and home address and I\'ll courier them to you!"',choices:[
+    {text:'😊 Share my phone number — free UC!',correct:false,explain:'❌ NEVER! This is a classic trick to collect personal info. Block and report "ProGamer99" immediately. Free in-game currency always comes from the game itself, never from strangers!'},
+    {text:'🚫 Ignore the message and block him',correct:true,explain:'✅ Perfect! A real player never needs your phone number or address. Block, report, and move on. Game currency scams are very common in India!'},
+    {text:'📱 Show the message to a parent',correct:true,explain:'✅ Excellent! Always involve a trusted adult when something feels wrong online. Your parent can help report this account.'},
+    {text:'💬 Keep chatting to find out more info',correct:false,explain:'❌ Not safe! More chatting = more risk. The scammer might try other tricks. Block immediately!'}
+  ]},
+  {id:1,avatar:'📱',name:'Free Jio Scam',context:'Priya tells Arjun on WhatsApp:',message:'"My cousin sent a link saying get FREE 3-month Jio recharge! It asks for Aadhaar number and bank account to verify. Should I do it??"',choices:[
+    {text:'✅ Yes, Jio does give free recharges!',correct:false,explain:'❌ No! This is a scam. No real company asks for your Aadhaar + bank details via a random link. Your Aadhaar is your digital identity — never share it on unverified sites!'},
+    {text:'🚫 No! It\'s a scam — warn Priya',correct:true,explain:'✅ Brilliant! You just saved Priya from identity theft! This is a very common Indian scam. Real offers from Jio are on their official app or website only.'},
+    {text:'🤷 Let her decide herself',correct:false,explain:'❌ Good friends help each other stay safe! Saying nothing when you know something is wrong makes you partly responsible.'},
+    {text:'📞 Tell a parent or teacher about it',correct:true,explain:'✅ Great! Adults can help report the scam link to cybercrime.gov.in so others don\'t get fooled either!'}
+  ]},
+  {id:2,avatar:'📸',name:'Instagram DM',context:'A stranger "Rahul_Delhi2010" (says he\'s 12) DMs Arjun on Instagram:',message:'"Hi! I love cricket like you! Can you send me a selfie and tell me your school name and which area you live in?"',choices:[
+    {text:'🙂 Share selfie — he seems like a normal kid!',correct:false,explain:'❌ Dangerous! You have no way to verify this person is actually a 12-year-old. Online predators often pretend to be children. Never share photos with strangers!'},
+    {text:'🏫 Tell only my school name — that\'s harmless',correct:false,explain:'❌ No! Your school name + area = strangers can physically find you. This is how online predators track children in real life!'},
+    {text:'🔒 Don\'t reply. Set profile to Private',correct:true,explain:'✅ Smart move! Private profiles protect you from strangers. You don\'t owe anyone your information. Block unknown DMs!'},
+    {text:'👨‍👩‍👦 Show the DM to a parent immediately',correct:true,explain:'✅ Perfect! Your parent can decide if this is suspicious and help you report or block the account.'}
+  ]},
+  {id:3,avatar:'💰',name:'UPI Lottery Scam',context:'Arjun gets an SMS:',message:'"Congratulations! You won ₹50,000 in the KBC Lottery! To claim, send ₹200 registration fee via UPI to 9876@paytm and share your UPI PIN with our agent!"',choices:[
+    {text:'🤑 Send ₹200 quickly — I really won!',correct:false,explain:'❌ This is a SCAM! KBC never sends SMS lottery wins to random people. Once you pay ₹200, the scammer disappears. You lose money AND if you share your UPI PIN, your bank account can be emptied!'},
+    {text:'📞 Call the number back to verify',correct:false,explain:'❌ Don\'t call! The scammer will pretend to be official and trick you further into giving more money or information.'},
+    {text:'🗑️ Delete the SMS and ignore it',correct:true,explain:'✅ Correct! If you never entered a lottery, you can\'t win one. Always delete suspicious SMS messages.'},
+    {text:'👨‍👩‍👦 Show it to a parent right away',correct:true,explain:'✅ Excellent! Your parent can report this to 1930 (National Cyber Helpline) and help prevent others from being scammed.'}
+  ]},
+  {id:4,avatar:'🎁',name:'Social Media Challenge',context:'A trending challenge on social media asks Arjun to:',message:'"Post your home address and a selfie to win a free iPhone 15! Tag 10 friends and use #FreePhone2024. The first 100 people WIN!"',choices:[
+    {text:'📸 Post quickly before 100 spots fill up!',correct:false,explain:'❌ Never! Sharing your home address publicly is extremely dangerous. Strangers can come to your house. No real company gives away iPhones this way — it\'s a scam to collect addresses and spread the fake post!'},
+    {text:'🤔 Post but hide my real address',correct:false,explain:'❌ Still not safe! Participating spreads the scam to your friends who might believe it and share real addresses.'},
+    {text:'🚫 Ignore and don\'t participate',correct:true,explain:'✅ Wise choice! If something sounds too good to be true online, it always is. "Challenges" asking for personal info are always scams or data harvesting.'},
+    {text:'⚠️ Report the post as a scam',correct:true,explain:'✅ Hero move! Reporting fake challenges protects thousands of other kids. Use the Report button on any social media platform.'}
+  ]}
+];
+
+function renderScenarios() {
+  const prog=document.getElementById('scenarioProgress'); prog.innerHTML='';
+  scenarios.forEach((s,i)=>{
+    if(i>0){const l=document.createElement('div');l.className='step-line'+(i<=currentScenario?' done':'');prog.appendChild(l);}
+    const d=document.createElement('div');
+    d.className='step-dot'+(i<currentScenario?' done':i===currentScenario?' active':'');
+    d.textContent=i<currentScenario?'✓':i+1; prog.appendChild(d);
+  });
+  const cont=document.getElementById('scenarioContainer'); cont.innerHTML='';
+  const s=scenarios[currentScenario];
+  const card=document.createElement('div'); card.className='scenario-card';
+  card.innerHTML=`
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+      <div style="font-size:1.8rem">${s.avatar}</div>
+      <div><div style="font-family:'Baloo 2',cursive;font-weight:700">${s.name}</div><div style="font-size:.75rem;color:var(--muted)">Situation ${currentScenario+1} of ${scenarios.length}</div></div>
+    </div>
+    <p style="font-size:.83rem;color:var(--muted)">${s.context}</p>
+    <div class="scenario-msg">${s.message}</div>
+    <p style="font-size:.82rem;color:var(--muted);margin-bottom:10px">What should Arjun do?</p>
+    <div id="choices-${s.id}">${s.choices.map((c,ci)=>`<button class="choice-btn" onclick="pickChoice(${s.id},${ci})">${c.text}</button>`).join('')}</div>
+    <div class="scenario-result" id="result-${s.id}"></div>
+    <button class="btn btn-primary" style="margin-top:13px;display:none" id="next-btn-${s.id}" onclick="${currentScenario<scenarios.length-1?'nextScenario()':'finishScenarios()'}">
+      ${currentScenario<scenarios.length-1?'Next Situation →':'Complete Mission! ✅'}
+    </button>`;
+  cont.appendChild(card);
+}
+
+function pickChoice(sId,ci) {
+  const s=scenarios[sId], choice=s.choices[ci];
+  document.querySelectorAll(`#choices-${sId} .choice-btn`).forEach(b=>b.disabled=true);
+  document.querySelectorAll(`#choices-${sId} .choice-btn`)[ci].classList.add(choice.correct?'correct':'wrong');
+  const res=document.getElementById('result-'+sId);
+  res.className='scenario-result show '+(choice.correct?'safe':'danger');
+  res.textContent=choice.explain;
+  if(choice.correct) addScoreOnly(10);
+  document.getElementById('next-btn-'+sId).style.display='inline-flex';
+}
+
+function addScoreOnly(pts) {
+  score+=pts; level=Math.floor(score/200)+1;
+  document.getElementById('totalScore').textContent=score;
+  document.getElementById('levelDisp').textContent=level;
+  updateLevelBar();
+}
+
+function nextScenario() { if(currentScenario<scenarios.length-1){currentScenario++;renderScenarios();} }
+
+function finishScenarios() {
+  if(!badges.scenarios){badges.scenarios=true;addScore(0,'Stranger Danger Expert!','You know exactly how to handle suspicious contacts online!');markTab('scenarios');}
+  goTo('sort');
+}
+
+// ===== M4: SORT =====
+const sortItems=[
+  {id:'si1',label:'🔒 Use Private Browsing',correct:'safe'},
+  {id:'si2',label:'📸 Send selfies to strangers',correct:'unsafe'},
+  {id:'si3',label:'🔐 Log out of shared computers',correct:'safe'},
+  {id:'si4',label:'📍 Post live location online',correct:'unsafe'},
+  {id:'si5',label:'🛡️ Use strong, unique passwords',correct:'safe'},
+  {id:'si6',label:'💬 Chat with unknown people',correct:'unsafe'},
+  {id:'si7',label:'📖 Use school educational sites',correct:'safe'},
+  {id:'si8',label:'🎁 Click "Free Prize!" links',correct:'unsafe'},
+  {id:'si9',label:'👁️ Enable privacy settings',correct:'safe'},
+  {id:'si10',label:'🏠 Share home address online',correct:'unsafe'},
+  {id:'si11',label:'✅ Report suspicious content',correct:'safe'},
+  {id:'si12',label:'🔑 Share password with friends',correct:'unsafe'}
+];
+
+let sortInit=false;
+function initSort() {
+  if(sortInit) return; sortInit=true;
+  const src=document.getElementById('sortSource');
+  const shuffled=[...sortItems].sort(()=>Math.random()-.5);
+  shuffled.forEach(item=>{
+    const chip=document.createElement('div');
+    chip.className='sort-chip'; chip.textContent=item.label;
+    chip.id='sc-'+item.id; chip.dataset.id=item.id; chip.draggable=true;
+    chip.addEventListener('dragstart',e=>{e.dataTransfer.setData('sort-id',item.id);window._sortEl=chip;});
+    src.appendChild(chip);
+  });
+}
+
+function dropSort(e,bin) {
+  e.preventDefault();
+  document.getElementById('bin-'+bin).classList.remove('drag-over');
+  const id=e.dataTransfer.getData('sort-id');
+  const chip=document.getElementById('sc-'+id); if(!chip) return;
+  sortPlacements[id]=bin;
+  chip.className='sort-chip placed-'+bin;
+  document.getElementById('placed-'+bin).appendChild(chip);
+  if(Object.keys(sortPlacements).length===sortItems.length) document.getElementById('sortDone').style.display='inline-flex';
+}
+
+function finishSort() {
+  let correct=0;
+  sortItems.forEach(item=>{if(sortPlacements[item.id]===item.correct) correct++;});
+  const fb=document.getElementById('sortFeedback'); fb.classList.add('show');
+  const pct=Math.round(correct/sortItems.length*100);
+  if(correct>=10){
+    fb.className='feedback-msg show safe';
+    fb.textContent='🎉 Amazing! '+correct+'/12 correct ('+pct+'%). Safety Sorter badge earned! +25 XP';
+    if(!badges.sort){badges.sort=true;addScore(25,'Safety Sorter!','You can perfectly identify safe and unsafe online activities!');markTab('sort');}
+  } else {
+    fb.className='feedback-msg show danger';
+    fb.textContent='You got '+correct+'/12 correct. Remember: never share personal info, never click suspicious links, always log out!';
+  }
+  document.getElementById('sortScore').textContent='Score: '+correct+' / '+sortItems.length+' ('+pct+'%)';
+}
+
+// ===== M5: PRIVACY =====
+const privacySettings={
+  'private':{correct:true,goodMsg:'✅ Private account protects you from strangers',badMsg:'❌ Public account — anyone in the world can see your posts!'},
+  'location':{correct:false,goodMsg:'✅ Location off — strangers can\'t track where you are',badMsg:'❌ Location ON — you\'re broadcasting your real-world location!'},
+  'dms':{correct:false,goodMsg:'✅ DMs restricted — strangers can\'t message you',badMsg:'❌ Open DMs — anyone can send you anything!'},
+  'activity':{correct:false,goodMsg:'✅ Activity hidden — no one tracks when you\'re online',badMsg:'❌ Activity visible — people know your online schedule!'},
+  '2fa':{correct:true,goodMsg:'✅ 2FA ON — extra layer of account protection',badMsg:'❌ 2FA OFF — your account has no backup security!'},
+  'story':{correct:false,goodMsg:'✅ Stories limited to followers only',badMsg:'❌ Stories public — strangers see your daily life!'},
+  'tags':{correct:true,goodMsg:'✅ Manual approval — you control what you\'re tagged in',badMsg:'❌ Auto-tagging — anyone can tag you in anything!'}
+};
+
+function updatePrivacy() {
+  const list=document.getElementById('privacyFeedbackList'); list.innerHTML='';
+  let score2=0;
+  Object.keys(privacySettings).forEach(key=>{
+    const setting=privacySettings[key];
+    const el=document.getElementById('tog-'+key);
+    const isCorrect=(el.checked===setting.correct);
+    if(isCorrect) score2++;
+    const li=document.createElement('li');
+    li.innerHTML=(isCorrect?'<span style="color:var(--safe)">✅</span>':'<span style="color:var(--danger)">⚠️</span>')+' <span>'+(isCorrect?setting.goodMsg:setting.badMsg)+'</span>';
+    list.appendChild(li);
+  });
+  const pct=Math.round(score2/Object.keys(privacySettings).length*100);
+  const ring=document.getElementById('privacyRing');
+  ring.textContent=pct+'%';
+  ring.style.borderColor=pct<50?'var(--danger)':pct<85?'var(--accent)':'var(--safe)';
+  ring.style.color=pct<50?'var(--danger)':pct<85?'var(--accent)':'var(--safe)';
+  document.getElementById('privacyLabel').textContent=pct<50?'⚠️ Your account is vulnerable!':pct<85?'👍 Getting better!':'🔒 Excellent privacy setup!';
+}
+updatePrivacy();
+
+function checkPrivacy() {
+  let correct=0;
+  Object.keys(privacySettings).forEach(key=>{
+    const setting=privacySettings[key];
+    const el=document.getElementById('tog-'+key);
+    if(el.checked===setting.correct) correct++;
+  });
+  const fb=document.getElementById('privacyFeedback'); fb.classList.add('show');
+  if(correct>=6){
+    fb.className='feedback-msg show safe';
+    fb.textContent='🎉 Excellent! '+correct+'/7 privacy settings correctly configured! +25 XP';
+    if(!badges.privacy){badges.privacy=true;addScore(25,'Privacy Ninja!','You know how to protect your digital identity perfectly!');markTab('privacy');}
+  } else {
+    fb.className='feedback-msg show danger';
+    fb.textContent='You got '+correct+'/7 correct. Tip: Turn ON Private, 2FA, and Tag Approval. Turn OFF Location, Open DMs, Activity Status, and Public Stories.';
+  }
+}
+
+// ===== M6: CYBERBULLYING =====
+const bullyChoices=[
+  {text:'😠 Fight back with angry messages',correct:false,explain:'❌ Fighting back online escalates the situation and can get YOU in trouble too! Never respond to bullies with anger.'},
+  {text:'📸 Screenshot the messages as evidence',correct:true,explain:'✅ Always screenshot first! Evidence is crucial if you need to report to school or police.'},
+  {text:'🚫 Block the bully on all platforms',correct:true,explain:'✅ Blocking stops the bully from reaching you. Do this on WhatsApp, Instagram, everywhere.'},
+  {text:'🙈 Delete the messages and pretend it didn\'t happen',correct:false,explain:'❌ Don\'t delete! You lose evidence. And ignoring doesn\'t make bullying stop — report it!'},
+  {text:'👨‍👩‍👦 Tell a trusted adult (parent/teacher)',correct:true,explain:'✅ Always involve an adult. They can help you report to school, platform, or if severe, to the police. National Helpline: 1930'},
+  {text:'📢 Share Bully_Kid\'s messages publicly to embarrass him',correct:false,explain:'❌ Sharing can escalate and spread hate. Let adults handle it through proper channels.'}
+];
+let bullyAnswered=[];
+
+function initBully() {
+  if(document.getElementById('bullyChoices').children.length>0) return;
+  const cont=document.getElementById('bullyChoices');
+  bullyChoices.forEach((c,i)=>{
+    const btn=document.createElement('button');
+    btn.className='choice-btn'; btn.textContent=c.text;
+    btn.onclick=()=>handleBully(i,btn);
+    cont.appendChild(btn);
+  });
+}
+
+function handleBully(i,btn) {
+  if(bullyAnswered.includes(i)) return;
+  bullyAnswered.push(i);
+  const c=bullyChoices[i];
+  btn.classList.add(c.correct?'correct':'wrong');
+  const fb=document.getElementById('bullyFeedback');
+  fb.className='feedback-msg show '+(c.correct?'safe':'danger');
+  fb.textContent=c.explain;
+  const correctCount=bullyAnswered.filter(idx=>bullyChoices[idx].correct).length;
+  if(correctCount>=3&&!badges.cyberbully){
+    badges.cyberbully=true;
+    document.getElementById('bullyResult').style.display='block';
+    addScore(30,'Anti-Bully Hero!','You know exactly how to handle cyberbullying — protect yourself and others!');
+    markTab('cyberbully');
+  }
+}
+
+// ===== M7: WIFI =====
+const wifiNetworks=[
+  {id:'w1',icon:'📶',name:'Free_Mall_WiFi_Official',details:'Password-protected · Confirmed by security guard',type:'safe',explain:'✅ SAFE! Official mall Wi-Fi with a password is generally safe for browsing. Staff confirmed it.'},
+  {id:'w2',icon:'📶',name:'FREE_WIFI_UNLIMITED_2024',details:'Open · No password · Unknown owner',type:'risky',explain:'❌ RISKY! Open Wi-Fi with no password — hackers often set up fake hotspots with tempting names to steal data from anyone who connects!'},
+  {id:'w3',icon:'🏠',name:'My_Home_Broadband',details:'WPA2 password protected · Your own router',type:'safe',explain:'✅ SAFE! Your home Wi-Fi with a strong password is the safest network to use.'},
+  {id:'w4',icon:'📶',name:'Jio_Fiber_GuestXX7',details:'Open network · Source unknown',type:'risky',explain:'❌ RISKY! Even if it has a real brand name, unverified open networks can be fake. Always ask staff to confirm the official network name.'},
+  {id:'w5',icon:'☕',name:'CafeCoffeeDay_Guest',details:'Password given by barista · HTTPS',type:'safe',explain:'✅ SAFE! Restaurant Wi-Fi given by staff is verified. Still avoid banking — use HTTPS sites only.'},
+  {id:'w6',icon:'📶',name:'HACKER_FREE_INTERNET',details:'Very fast · No password',type:'risky',explain:'❌ OBVIOUS SCAM! No legitimate network is called this. This is a classic "evil twin" hotspot set up by hackers to steal data.'}
+];
+let wifiInit=false;
+
+function initWifi() {
+  if(wifiInit) return; wifiInit=true;
+  const grid=document.getElementById('wifiGrid');
+  wifiNetworks.forEach(n=>{
+    const card=document.createElement('div');
+    card.className='wifi-card '+(n.type==='safe'?'safe-wifi':'risky-wifi');
+    card.id='wifi-'+n.id;
+    card.innerHTML=`<div class="wifi-icon">${n.icon}</div><div class="wifi-name">${n.name}</div><div class="wifi-detail">${n.details}</div><div style="margin-top:10px;font-size:.75rem;color:var(--muted)" id="wifi-lbl-${n.id}">Click to evaluate</div>`;
+    card.onclick=()=>handleWifi(n.id,card,n);
+    grid.appendChild(card);
+  });
+}
+
+function handleWifi(id,card,n) {
+  if(wifiAnswers[id]) return;
+  wifiAnswers[id]=true;
+  card.classList.add(n.type==='safe'?'selected-safe':'selected-risky');
+  document.getElementById('wifi-lbl-'+id).textContent=n.type==='safe'?'✅ Safe to connect':'❌ Risky — avoid!';
+  document.getElementById('wifi-lbl-'+id).style.color=n.type==='safe'?'var(--safe)':'var(--danger)';
+  const fb=document.getElementById('wifiFeedback');
+  fb.className='feedback-msg show '+(n.type==='safe'?'safe':'danger');
+  fb.textContent=n.explain;
+  if(Object.keys(wifiAnswers).length===wifiNetworks.length&&!badges.network){
+    badges.network=true;
+    document.getElementById('wifiResult').style.display='block';
+    addScore(20,'Wi-Fi Wizard!','You can identify safe and risky Wi-Fi networks like a pro!');
+    markTab('network');
+  }
+}
+
+// ===== M8: MULTI-LEVEL QUIZ =====
+const quizLevels = {
+  1: {
+    title:'Level 1 — Beginner',
+    info:'🟢 <strong>Level 1 — Beginner:</strong> Core concepts from all 8 missions. Get 7/10 to unlock Level 2!',
+    pass:7, xp:50, badge:'quiz', badgeName:'Quiz Champion',
+    questions:[
+      {q:'What makes a password STRONGEST?',opts:['Your name + birthday','Random words + numbers + symbols + 12+ chars','Just numbers like 12345678','Your school name'],correct:1,explain:'A strong password uses random words, numbers, symbols, and is at least 12 characters long — making it nearly impossible to guess!'},
+      {q:'You get an email: "URGENT: Your SBI account is LOCKED, click here!" What do you do?',opts:['Click the link quickly','Share your account PIN','Delete the email and tell an adult','Reply asking for more details'],correct:2,explain:'This is a phishing email! Never click suspicious links. Delete it and inform a trusted adult who can report it.'},
+      {q:'A stranger online asks for your school name. What should you do?',opts:['Tell them — it is harmless info','Share school + class name','Ignore and block the stranger','Ask them their school first'],correct:2,explain:'You cannot verify who someone really is online. Never share location details with strangers!'},
+      {q:'Which of these is CYBERBULLYING?',opts:['Playing online games with friends','Sending mean messages to someone repeatedly','Video calling your cousins','Posting homework photos in class group'],correct:1,explain:'Cyberbullying is repeated harassment, threats, or embarrassment using technology. It is a crime under India\'s IT Act!'},
+      {q:'What does "HTTPS" in a website URL mean?',opts:['The site is very fast','The site is encrypted and more secure','The site is free to use','The site has been approved by Google'],correct:1,explain:'HTTPS means the connection is encrypted. Always look for HTTPS when entering personal info!'},
+      {q:'Priya gets a message: "You\'ve won ₹1 lakh! Send ₹500 to claim." What is this?',opts:['A real lottery from the government','A cybercrime scam — advance fee fraud','A genuine bank offer','A school competition prize'],correct:1,explain:'This is advance fee fraud — pay a fee to claim a prize that doesn\'t exist. Report to 1930!'},
+      {q:'Which public Wi-Fi is SAFEST for casual browsing?',opts:['Open network named FREE_INTERNET','Coffee shop Wi-Fi given by the barista','Any network with "Free" in the name','An unlocked network near a hospital'],correct:1,explain:'Verified cafe Wi-Fi given by staff is generally safe. Still avoid banking apps!'},
+      {q:'Two-Factor Authentication (2FA) means:',opts:['You need two phones to login','A second security code required even after password','You change password twice a month','Two people share one account'],correct:1,explain:'2FA adds an extra security layer. Even if someone gets your password, they still need the code sent to your phone!'},
+      {q:'What should you do FIRST if you\'re being cyberbullied?',opts:['Respond angrily to the bully','Delete all evidence','Screenshot the messages and tell a trusted adult','Post about it publicly'],correct:2,explain:'Always screenshot first (preserve evidence), then tell a trusted adult. Helpline: 1930!'},
+      {q:'What information is SAFE to share with a new online friend?',opts:['Your favourite cricket team','Your home address','Your school name','Your phone number'],correct:0,explain:'Your favourite sports team cannot be used to find or harm you. Never share addresses, school names, or phone numbers with strangers!'}
+    ]
+  },
+  2: {
+    title:'Level 2 — Intermediate',
+    info:'🟡 <strong>Level 2 — Intermediate:</strong> Deeper knowledge! 12 questions, scenario-based. Get 8/12 to unlock Expert Level 3!',
+    pass:8, xp:75, badge:'quiz2', badgeName:'Intermediate Scholar',
+    questions:[
+      {q:'A website URL shows "http://sbi-login.xyz/secure". What is suspicious about this?',opts:['It uses HTTP not HTTPS AND has a fake domain — both are red flags','Only the domain name is wrong','Only HTTP is the issue','Nothing — it looks fine'],correct:0,explain:'Double red flag! HTTP (not HTTPS) means no encryption, AND sbi-login.xyz is not the real SBI domain (sbi.co.in). Both signals confirm this is a phishing site!'},
+      {q:'Arjun receives a WhatsApp voice note from an unknown number pretending to be his bank. They ask for OTP. What should he do?',opts:['Give the OTP — it sounds urgent','Hang up and call the bank\'s official number','Give only half the OTP','Call the number back'],correct:1,explain:'NEVER give your OTP to anyone — not even if they claim to be your bank. Banks never ask for OTP over calls! Always call back on the bank\'s official number printed on the card.'},
+      {q:'What is "social engineering" in cybercrime?',opts:['Hacking using computer code only','Manipulating people psychologically to reveal information','Building social media apps','Engineering new social networks'],correct:1,explain:'Social engineering tricks people into giving up information by exploiting trust, urgency, or fear — without using any technical hacking. It\'s the most common cybercrime technique!'},
+      {q:'Sneha uses the same password "Sneha@123" for her Gmail, Instagram, and school portal. What\'s the risk?',opts:['No risk — it\'s a strong password','If one account is hacked, all accounts can be accessed','Only the weakest site is at risk','Passwords with names are always safe'],correct:1,explain:'This is called "credential stuffing". If hackers get your password from one leaked site, they try it on every other platform. Always use unique passwords per site!'},
+      {q:'Which section of India\'s IT Act deals with cyberbullying and sending offensive messages?',opts:['Section 44','Section 66A / Section 67','Section 420 IPC only','Section 10B'],correct:1,explain:'Section 66A (offensive messages) and Section 67 (obscene content) of the IT Act 2000 deal with cyberbullying and harassment. Cybercrime is a serious legal matter in India!'},
+      {q:'What is a "cookie" on a website?',opts:['A reward for visiting the site','A small file stored on your device tracking your activity','A type of computer virus','A pop-up advertisement'],correct:1,explain:'Cookies track your browsing activity, preferences, and login state. While many cookies are harmless, third-party tracking cookies can build a detailed profile of you for advertisers!'},
+      {q:'Rahul\'s gaming account gets hacked. The hacker used his email address and guessed his password. What mistake did Rahul most likely make?',opts:['Used a public computer once','Used a weak or common password without 2FA enabled','Played too many hours online','Shared game screenshots publicly'],correct:1,explain:'Weak passwords + no 2FA = easy target! A strong unique password + 2FA would have prevented this. Enable 2FA on all important accounts!'},
+      {q:'What does "phishing" specifically mean?',opts:['A water sport','Sending fraudulent messages to steal sensitive information','Hacking government databases','A type of computer virus'],correct:1,explain:'Phishing comes from "fishing" — cybercriminals cast a fake bait (fake email/link) hoping you\'ll bite (click and give your info). The "ph" spelling distinguishes it from the water sport!'},
+      {q:'Priya is at school and sees a USB drive left on a desk. She picks it up and plugs it into the school computer. What can happen?',opts:['Nothing — USB drives are safe','Malware on the USB could infect the school network','The USB might just not work','It can only harm the USB itself'],correct:1,explain:'This is called a "USB Drop Attack"! Cybercriminals deliberately leave infected USB drives in public places. Always report found USB drives to IT staff — never plug them in!'},
+      {q:'What is the safest way to use a public computer at a cyber cafe?',opts:['Save your passwords for convenience','Log out and clear browser history after use','Let it remember your password for next time','Share your login with the café owner'],correct:1,explain:'Always log out of ALL accounts, clear browsing history, and never save passwords on public computers. Assume everything you do is visible to others!'},
+      {q:'Which of these is a sign your phone may have been hacked?',opts:['Battery drains unusually fast with unknown apps running','Phone screen is bright','Wi-Fi is connected','You receive too many notifications'],correct:0,explain:'Rapid battery drain + unknown apps running in the background are classic signs of malware infection. Also watch for: unusually high data usage, phone heating up, strange texts sent from your number!'},
+      {q:'Your friend shares a meme making fun of a classmate\'s photo without permission. You find it funny. What should you do?',opts:['Like and share — it\'s just a joke','Screenshot and save it yourself','Don\'t share, tell your friend it\'s wrong, and suggest removing it','Just ignore it — not your problem'],correct:2,explain:'Sharing or liking content that mocks someone is participating in cyberbullying, even if you find it funny. Speaking up is the right thing — and legally you can also be held responsible for spreading it!'}
+    ]
+  },
+  3: {
+    title:'Level 3 — Cyber Expert',
+    info:'🔴 <strong>Level 3 — Expert:</strong> Advanced cybersecurity concepts! 10 challenging questions for true cyber experts. Get 7/10 for the ultimate badge!',
+    pass:7, xp:100, badge:'quiz3', badgeName:'Cyber Expert',
+    questions:[
+      {q:'What is "ransomware"?',opts:['Software that speeds up your computer','Malicious software that encrypts your files and demands payment to unlock them','A tool to recover deleted files','A type of antivirus program'],correct:1,explain:'Ransomware is one of the most dangerous cyberattacks. It locks all your files and demands cryptocurrency payment to decrypt them. Prevention: keep software updated, backup data regularly, never click unknown links!'},
+      {q:'What is a "man-in-the-middle" (MITM) attack?',opts:['Two hackers working together simultaneously','An attacker secretly intercepting communication between two parties','Hacking while the victim is sleeping','A social engineering scam'],correct:1,explain:'In a MITM attack, a hacker positions themselves between you and the website/server, secretly reading or modifying all your communications. This is common on unencrypted public Wi-Fi — another reason to use HTTPS and VPNs!'},
+      {q:'What is "doxxing"?',opts:['A type of computer virus','Publicly revealing someone\'s private personal information without consent to harm them','Sending anonymous emails','Deleting someone\'s social media profile'],correct:1,explain:'Doxxing (from "documents") is when someone researches and publicly exposes private information (address, phone, family details) about a person — often to harass or threaten them. It is illegal under India\'s IT Act!'},
+      {q:'Arjun gets a WhatsApp message: "Forward this to 10 friends or your account will be deleted in 24 hours!" What is this called?',opts:['A genuine warning from WhatsApp','A chain message hoax designed to spread misinformation','A software update notification','A cybercrime report'],correct:1,explain:'Chain messages are hoaxes designed to spread fear and misinformation. WhatsApp, Instagram, and other platforms NEVER threaten account deletion via chat messages. Always verify from official app settings!'},
+      {q:'What is the difference between a "virus" and a "worm"?',opts:['They are exactly the same thing','A virus needs a host file to spread; a worm spreads independently across networks','A worm is less dangerous than a virus','A virus only affects phones, a worm affects computers'],correct:1,explain:'A virus attaches to existing files and needs user action (like opening a file) to spread. A worm self-replicates and travels across networks automatically — often much faster and more destructive!'},
+      {q:'What is "end-to-end encryption" in messaging apps?',opts:['Messages are encrypted only on your phone','Only the sender and receiver can read messages — even the app company cannot','Messages are deleted after being read','Messages are stored on a secure server'],correct:1,explain:'End-to-end encryption (E2EE) means only you and the person you\'re talking to can read messages. WhatsApp, Signal, and iMessage use E2EE. Even the company cannot read your chats!'},
+      {q:'India\'s "Cyber Swachhta Kendra" was launched by which ministry?',opts:['Ministry of Finance','Ministry of Electronics and Information Technology (MeitY)','Ministry of Home Affairs','Ministry of Education'],correct:1,explain:'Cyber Swachhta Kendra (Botnet Cleaning and Malware Analysis Centre) was launched by MeitY as part of the Digital India initiative to help citizens clean malware from their devices for free!'},
+      {q:'A website asks you to complete a CAPTCHA ("I am not a robot"). What is the purpose of CAPTCHA?',opts:['To slow down the website intentionally','To distinguish between human users and automated bots/hackers','To test your internet speed','To collect your personal data'],correct:1,explain:'CAPTCHA stands for Completely Automated Public Turing test to tell Computers and Humans Apart. It prevents automated bots from creating fake accounts, spamming, or conducting brute-force attacks!'},
+      {q:'What is the "dark web"?',opts:['Websites that only work at night','A part of the internet not indexed by regular search engines, often used for illegal activities','Websites with dark colour themes','Slow-loading government websites'],correct:1,explain:'The dark web requires special software (like Tor) to access and is not indexed by Google. While some use it for privacy, it\'s heavily used for illegal trade, stolen data, and cybercrime. Never access the dark web!'},
+      {q:'Which national helpline should you call to report cybercrime in India?',opts:['100','112','1930','155260'],correct:2,explain:'1930 is India\'s dedicated National Cyber Crime Helpline (also report at cybercrime.gov.in). Call 1930 immediately if you are a victim of online fraud, cyberbullying, or any cybercrime. Available 24/7!'}
+    ]
+  }
+};
+
+let currentQuizLevel = 1;
+let quizLevelState = { 1:{done:false,score:0}, 2:{done:false,score:0}, 3:{done:false,score:0} };
+let quizAnswers2={}, quizCurrent=0, quizStartTime=0, quizActive=false;
+
+function initQuiz() {
+  updateQuizTabs();
+  if(!quizActive) { quizActive=true; startQuizLevel(1); }
+}
+
+function updateQuizTabs() {
+  [1,2,3].forEach(l => {
+    const tab = document.getElementById('qtab-'+l);
+    const badge = document.getElementById('qbadge-'+l);
+    const state = quizLevelState[l];
+    tab.classList.remove('active','locked','completed');
+    if(l === currentQuizLevel) tab.classList.add('active');
+    if(state.done) { tab.classList.add('completed'); badge.textContent='✅ '+state.score+'/'+quizLevels[l].questions.length; badge.className='level-badge-inline green'; }
+    else if(l===2 && !quizLevelState[1].done) { tab.classList.add('locked'); badge.textContent='🔒 Locked'; badge.className='level-badge-inline'; }
+    else if(l===3 && !quizLevelState[2].done) { tab.classList.add('locked'); badge.textContent='🔒 Locked'; badge.className='level-badge-inline'; }
+    else { badge.textContent=quizLevels[l].questions.length+' Qs'; badge.className='level-badge-inline'+(l===1?' green':l===2?'':' gold'); }
+  });
+}
+
+function switchQuizLevel(l) {
+  if(l===2 && !quizLevelState[1].done) return;
+  if(l===3 && !quizLevelState[2].done) return;
+  currentQuizLevel = l;
+  quizAnswers2 = {}; quizCurrent = 0;
+  document.getElementById('quizSummary').style.display='none';
+  updateQuizTabs();
+  document.getElementById('quizLevelInfo').innerHTML = quizLevels[l].info;
+  startQuizLevel(l);
+}
+
+function startQuizLevel(l) {
+  currentQuizLevel = l;
+  quizAnswers2 = {}; quizCurrent = 0;
+  quizStartTime = Date.now();
+  document.getElementById('quizSummary').style.display='none';
+  renderQuiz();
+}
+
+function renderQuiz() {
+  const lvl = quizLevels[currentQuizLevel];
+  const qs = lvl.questions;
+  const prog=document.getElementById('quizProgress'); prog.innerHTML='';
+  qs.forEach((q,i)=>{
+    const d=document.createElement('div');
+    d.style.cssText='width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;transition:all .3s;border:2px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);color:var(--muted)';
+    if(quizAnswers2[i]!==undefined) d.style.cssText+=';background:'+(quizAnswers2[i]?'rgba(46,213,115,.3)':'rgba(255,71,87,.3)')+';border-color:'+(quizAnswers2[i]?'var(--safe)':'var(--danger)')+';color:'+(quizAnswers2[i]?'var(--safe)':'var(--danger)');
+    else if(i===quizCurrent) d.style.cssText+=';background:rgba(255,153,51,.2);border-color:var(--saffron);color:var(--saffron)';
+    d.textContent=i+1; prog.appendChild(d);
+  });
+
+  const cont=document.getElementById('quizContainer'); cont.innerHTML='';
+  if(quizCurrent>=qs.length){ showQuizSummary(); return; }
+  const q=qs[quizCurrent];
+  const diffColor = currentQuizLevel===1?'var(--safe)':currentQuizLevel===2?'var(--accent)':'var(--danger)';
+  const diffLabel = currentQuizLevel===1?'🟢 Beginner':currentQuizLevel===2?'🟡 Intermediate':'🔴 Expert';
+  const div=document.createElement('div'); div.className='quiz-q';
+  div.innerHTML=`
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+      <span style="font-size:.75rem;color:var(--muted)">Question ${quizCurrent+1} of ${qs.length}</span>
+      <span style="font-size:.75rem;font-weight:700;color:${diffColor}">${diffLabel} · +${currentQuizLevel===3?10:currentQuizLevel===2?7:5} XP</span>
+    </div>
+    <h4>${q.q}</h4>
+    ${q.opts.map((o,i)=>`<button class="quiz-opt" onclick="answerQuiz(${i})">${String.fromCharCode(65+i)}. ${o}</button>`).join('')}`;
+  cont.appendChild(div);
+}
+
+function answerQuiz(i) {
+  const lvl = quizLevels[currentQuizLevel];
+  const q=lvl.questions[quizCurrent];
+  const correct=i===q.correct;
+  quizAnswers2[quizCurrent]=correct;
+  const xpPerQ = currentQuizLevel===3?10:currentQuizLevel===2?7:5;
+  if(correct) addScoreOnly(xpPerQ);
+  document.querySelectorAll('.quiz-opt').forEach((b,bi)=>{
+    b.disabled=true;
+    if(bi===q.correct) b.classList.add('correct');
+    if(bi===i&&!correct) b.classList.add('wrong');
+  });
+  const fb=document.createElement('div');
+  fb.className='feedback-msg show '+(correct?'safe':'danger');
+  fb.textContent=(correct?'✅ ':'❌ ')+q.explain;
+  document.querySelector('.quiz-q').appendChild(fb);
+  const btn=document.createElement('button');
+  btn.className='btn btn-primary'; btn.style.marginTop='12px';
+  btn.textContent=quizCurrent<lvl.questions.length-1?'Next Question →':'See My Results 🏆';
+  btn.onclick=()=>{quizCurrent++;renderQuiz();};
+  document.querySelector('.quiz-q').appendChild(btn);
+  renderQuiz();
+}
+
+function showQuizSummary() {
+  const lvl = quizLevels[currentQuizLevel];
+  const qs = lvl.questions;
+  const correct=Object.values(quizAnswers2).filter(Boolean).length;
+  const total=qs.length;
+  const pct=Math.round(correct/total*100);
+  const passed = correct >= lvl.pass;
+  const timeMs=Date.now()-quizStartTime;
+
+  quizLevelState[currentQuizLevel] = { done: passed, score: correct };
+  updateQuizTabs();
+
+  document.getElementById('quizContainer').innerHTML='';
+  const summary=document.getElementById('quizSummary'); summary.style.display='block';
+  document.getElementById('quizSummaryEmoji').textContent = passed?(currentQuizLevel===3?'👑':currentQuizLevel===2?'🥈':'🏆'):'📚';
+  document.getElementById('quizSummaryTitle').textContent = passed?lvl.badgeName+' Achieved! 🎉':'Almost There! Keep Trying!';
+  document.getElementById('quizSummaryScore').textContent = correct+'/'+total+' ('+pct+'%)';
+  document.getElementById('quizSummaryScore').style.color = pct>=70?'var(--safe)':pct>=50?'var(--accent)':'var(--danger)';
+  document.getElementById('quizSummaryMsg').textContent = passed
+    ? (currentQuizLevel<3 ? 'Great job! Level '+(currentQuizLevel+1)+' is now unlocked. Challenge yourself further!' : 'Incredible! You\'ve mastered all 3 levels — you are a true Cyber Expert!')
+    : 'You need '+lvl.pass+'/'+total+' to pass. Review the missions and try again — you can do it!';
+
+  // Award badges
+  const timeOk = timeMs<180000;
+  if(passed && !badges[lvl.badge]) {
+    badges[lvl.badge]=true;
+    addScore(lvl.xp, lvl.badgeName+'!', 'You passed Level '+currentQuizLevel+' with '+pct+'% score!');
+    markTab('quiz');
+  }
+  if(correct===total && !badges.perfect){ badges.perfect=true; unlockBadgeEl('badge-perfect'); }
+  if(timeOk&&passed&&currentQuizLevel===1&&!badges.speedster){ badges.speedster=true; unlockBadgeEl('badge-speedster'); }
+
+  // Check triple level
+  if(quizLevelState[1].done&&quizLevelState[2].done&&quizLevelState[3].done&&!badges.trilevel){
+    badges.trilevel=true; unlockBadgeEl('badge-trilevel');
+  }
+
+  // Action buttons
+  const acts = document.getElementById('quizNextActions'); acts.innerHTML='';
+  if(passed && currentQuizLevel<3){
+    const nb=document.createElement('button');
+    nb.className='btn btn-primary'; nb.textContent='Try Level '+(currentQuizLevel+1)+' →';
+    nb.onclick=()=>switchQuizLevel(currentQuizLevel+1); acts.appendChild(nb);
+  }
+  const rb=document.createElement('button');
+  rb.className='btn btn-secondary'; rb.textContent='🔄 Retry This Level';
+  rb.onclick=()=>startQuizLevel(currentQuizLevel); acts.appendChild(rb);
+  const bb=document.createElement('button');
+  bb.className='btn btn-blue'; bb.textContent='🏆 See Badges';
+  bb.onclick=()=>goTo('badges'); acts.appendChild(bb);
+}
+
+function unlockBadgeEl(id) {
+  const el=document.getElementById(id);
+  if(!el) return;
+  el.style.opacity='1'; el.classList.add('earned');
+  el.querySelectorAll('.lock').forEach(x=>{x.classList.remove('lock');x.style.opacity='1';x.style.filter='none';});
+}
+
+// ===== BADGES =====
+function markTab(name) {
+  const tab=document.getElementById('tab-'+name);
+  if(tab&&!tab.querySelector('.ck')){const s=document.createElement('span');s.className='ck';s.textContent='✓';tab.appendChild(s);}
+}
+
+function updateBadgesScreen() {
+  const allBadgeKeys=['password','phishing','scenarios','sort','privacy','cyberbully','network','quiz','quiz2','quiz3','allstar','speedster','perfect','trilevel','champion'];
+  allBadgeKeys.forEach(b=>{
+    const card=document.getElementById('badge-'+b);
+    if(card&&badges[b]){ card.classList.add('earned'); card.style.opacity='1'; card.querySelectorAll('.lock').forEach(el=>{el.classList.remove('lock');el.style.opacity='1';el.style.filter='none';}); }
+  });
+  document.getElementById('finalScore').textContent=score;
+  document.getElementById('finalLevel').textContent=level;
+  document.getElementById('badgeCount').textContent=Object.values(badges).filter(Boolean).length;
+  const bar=document.getElementById('badgeLvlBar');
+  if(bar) bar.style.width=((score%200)/200*100)+'%';
+  // All-Star: all 8 main missions
+  const mainBadges=['password','phishing','scenarios','sort','privacy','cyberbully','network','quiz'];
+  if(mainBadges.every(b=>badges[b])){ badges.allstar=true; unlockBadgeEl('badge-allstar'); }
+  // Grand Champion
+  if(mainBadges.every(b=>badges[b])&&badges.quiz3&&!badges.champion){ badges.champion=true; unlockBadgeEl('badge-champion'); }
+  // Show certificate section if quiz badge earned
+  const certSec=document.getElementById('certSection');
+  if(certSec) certSec.style.display=badges.quiz?'block':'none';
+}
+
+// ===== CERTIFICATE =====
+function openCertificate() {
+  const name = document.getElementById('studentNameInput').value.trim() || 'Cyber Guardian';
+  const earnedBadges = [
+    {key:'password',icon:'🔐'},{key:'phishing',icon:'🎣'},{key:'scenarios',icon:'💬'},
+    {key:'sort',icon:'📂'},{key:'privacy',icon:'🔒'},{key:'cyberbully',icon:'🤝'},
+    {key:'network',icon:'📶'},{key:'quiz',icon:'🧠'},{key:'quiz2',icon:'🥈'},
+    {key:'quiz3',icon:'🥇'},{key:'allstar',icon:'⭐'},{key:'speedster',icon:'⚡'},{key:'perfect',icon:'💯'}
+  ].filter(b=>badges[b.key]);
+
+  document.getElementById('certStudentName').textContent = name;
+  document.getElementById('certXP').textContent = score;
+  document.getElementById('certBadges').textContent = Object.values(badges).filter(Boolean).length;
+  document.getElementById('certLevel').textContent = level;
+  const now = new Date();
+  document.getElementById('certDate').textContent = now.toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'numeric'});
+
+  const row = document.getElementById('certBadgesRow');
+  row.innerHTML = earnedBadges.map(b=>`<span class="cert-badge-mini">${b.icon}</span>`).join('');
+
+  // Add quiz level achievements
+  let achievementText = 'Completed: ';
+  const levels=[];
+  if(quizLevelState[1].done) levels.push('Level 1 ('+quizLevelState[1].score+'/10)');
+  if(quizLevelState[2].done) levels.push('Level 2 ('+quizLevelState[2].score+'/12)');
+  if(quizLevelState[3].done) levels.push('Level 3 Expert ('+quizLevelState[3].score+'/10)');
+  const achEl = document.querySelector('.cert-body');
+  if(achEl && levels.length>0) {
+    achEl.innerHTML = `has successfully completed the <strong>CyberShield India 2.0</strong> Digital Safety Programme<br>and demonstrated outstanding knowledge of online safety, cybercrime prevention,<br>and responsible digital citizenship.<br><br><strong style="color:#000080">Quiz Achievement:</strong> ${levels.join(' · ')}`;
+  }
+
+  document.getElementById('certOverlay').classList.add('open');
+}
+
+// ===== RESTART =====
+function restartGame() {
+  score=0; level=1;
+  badges={password:false,phishing:false,scenarios:false,sort:false,privacy:false,cyberbully:false,network:false,quiz:false,quiz2:false,quiz3:false,allstar:false,speedster:false,perfect:false,trilevel:false,champion:false};
+  cluesFound=new Set(); dropped=[]; sortPlacements={}; privacyChecked=false;
+  currentScenario=0; bullyStep=0; wifiAnswers={}; wifiDone=false;
+  quizAnswers={}; quizAnswers2={}; quizCurrent=0; quizActive=false;
+  currentQuizLevel=1; quizLevelState={1:{done:false,score:0},2:{done:false,score:0},3:{done:false,score:0}};
+  sortInit=false; wifiInit=false; bullyAnswered=[];
+  document.getElementById('totalScore').textContent='0';
+  document.getElementById('levelDisp').textContent='1';
+  document.getElementById('badgeCount').textContent='0';
+  resetPassword();
+  clueOrder.forEach(id=>{const el=document.getElementById('clue-'+id);if(el){el.classList.remove('found');el.style.cursor='pointer';}});
+  document.getElementById('phishingWin').style.display='none';
+  document.getElementById('phishingFeedback').classList.remove('show');
+  initPhishing();
+  document.getElementById('sortSource').innerHTML='';
+  document.getElementById('placed-safe').innerHTML='';
+  document.getElementById('placed-unsafe').innerHTML='';
+  document.getElementById('sortFeedback').classList.remove('show');
+  document.getElementById('sortScore').textContent='';
+  document.getElementById('sortDone').style.display='none';
+  document.getElementById('wifiGrid').innerHTML='';
+  document.getElementById('wifiResult').style.display='none';
+  document.getElementById('wifiFeedback').classList.remove('show');
+  document.getElementById('bullyChoices').innerHTML='';
+  document.getElementById('bullyFeedback').classList.remove('show');
+  document.getElementById('bullyResult').style.display='none';
+  document.getElementById('quizSummary').style.display='none';
+  document.getElementById('quizProgress').innerHTML='';
+  document.getElementById('quizContainer').innerHTML='';
+  document.getElementById('privacyFeedback').classList.remove('show');
+  const cs=document.getElementById('certSection'); if(cs) cs.style.display='none';
+  document.querySelectorAll('.nav-tab .ck').forEach(e=>e.remove());
+  document.querySelectorAll('.mission-card').forEach(mc=>{mc.classList.remove('done');const db=mc.querySelector('.done-badge');if(db){db.className='xp';}});
+  ['private','2fa','tags'].forEach(id=>{const t=document.getElementById('tog-'+id);if(t)t.checked=false;});
+  ['location','dms','activity','story'].forEach(id=>{const t=document.getElementById('tog-'+id);if(t)t.checked=true;});
+  updatePrivacy(); updateLevelBar(); updateQuizTabs();
+  goTo('welcome');
+}
+</script>
+</body>
+</html>
